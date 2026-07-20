@@ -1,1 +1,491 @@
-file:///Users/ariellacohen/Downloads/index_1.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ari Cohen — Product Designer</title>
+<meta name="description" content="Ari Cohen, senior product designer. Case studies from Maven Clinic.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#111111;
+    --ink-soft:#3a3a38;
+    --paper:#fafaf8;
+    --line:rgba(17,17,17,0.14);
+    --line-strong:rgba(17,17,17,0.9);
+    --gray:#6e6e6b;
+    --gray-soft:#b8b6b0;
+    --max:1080px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation:none !important; transition:none !important;}
+  }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--ink);
+    outline-offset:3px;
+  }
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 28px;}
+
+  /* NAV */
+  header{
+    position:sticky; top:0; z-index:20;
+    background:rgba(250,250,248,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 0;
+  }
+  .nav-name{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    text-decoration:none;
+  }
+  .nav-links{display:flex; gap:28px; list-style:none; margin:0; padding:0;}
+  .nav-links a{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+    padding-bottom:2px;
+  }
+  .nav-links a:hover{border-bottom-color:var(--ink);}
+  .nav-toggle{display:none;}
+
+  /* HERO */
+  .hero{
+    padding:88px 0 48px;
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--gray);
+    margin:0 0 22px;
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:clamp(32px, 5.4vw, 58px);
+    line-height:1.12;
+    letter-spacing:-0.01em;
+    margin:0 0 26px;
+    max-width:16ch;
+  }
+  .hero p{
+    font-size:17px;
+    line-height:1.6;
+    color:var(--ink-soft);
+    max-width:56ch;
+    margin:0 0 8px;
+  }
+
+  /* READOUT STRIP — signature element */
+  .readout{
+    border-bottom:1px solid var(--line);
+  }
+  .readout-inner{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+  }
+  .stat{
+    padding:26px 24px;
+    border-left:1px solid var(--line);
+  }
+  .stat:first-child{border-left:none;}
+  .stat-num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:clamp(22px,3.2vw,32px);
+    font-weight:500;
+    letter-spacing:-0.01em;
+    display:block;
+  }
+  .stat-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--gray);
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    display:block;
+    margin-top:6px;
+    line-height:1.4;
+  }
+
+  /* SECTION HEADERS */
+  section{padding:72px 0;}
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    margin-bottom:44px;
+    border-bottom:1px solid var(--line);
+    padding-bottom:18px;
+  }
+  .section-head h2{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:28px;
+    margin:0;
+  }
+  .section-index{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--gray);
+  }
+
+  /* WORK */
+  .case{
+    display:grid;
+    grid-template-columns:100px 1fr;
+    gap:32px;
+    padding:36px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .case:last-child{border-bottom:none;}
+  .case-num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--gray-soft);
+    padding-top:4px;
+  }
+  .case h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:23px;
+    margin:0 0 6px;
+  }
+  .case-role{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    color:var(--gray);
+    margin:0 0 16px;
+  }
+  .case p{
+    font-size:15.5px;
+    line-height:1.65;
+    color:var(--ink-soft);
+    max-width:64ch;
+    margin:0 0 14px;
+  }
+  .case-stats{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 24px;
+    margin-top:8px;
+  }
+  .case-stat{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+  }
+  .case-stat b{font-weight:500;}
+  .tags{
+    display:flex; flex-wrap:wrap; gap:8px;
+    margin-top:16px;
+  }
+  .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    border:1px solid var(--line-strong);
+    padding:4px 9px;
+    border-radius:2px;
+  }
+
+  /* APPROACH */
+  .approach-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+  }
+  .approach p{
+    font-size:16px;
+    line-height:1.7;
+    color:var(--ink-soft);
+    max-width:52ch;
+  }
+  .principles{
+    list-style:none; margin:0; padding:0;
+    border-top:1px solid var(--line);
+  }
+  .principles li{
+    padding:14px 0;
+    border-bottom:1px solid var(--line);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    display:flex;
+    gap:16px;
+  }
+  .principles li span.n{color:var(--gray-soft);}
+
+  /* FOOTER / CONTACT */
+  footer{
+    border-top:1px solid var(--line);
+    padding:64px 0 48px;
+  }
+  .footer-grid{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:32px;
+  }
+  footer h2{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:30px;
+    margin:0 0 18px;
+    max-width:14ch;
+  }
+  .contact-list{list-style:none; margin:0; padding:0;}
+  .contact-list li{margin-bottom:8px;}
+  .contact-list a{
+    text-decoration:none;
+    border-bottom:1px solid var(--line-strong);
+  }
+  .btn{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    text-decoration:none;
+    color:var(--paper);
+    background:var(--ink);
+    padding:14px 22px;
+    border-radius:2px;
+  }
+  .btn:hover{background:var(--ink-soft);}
+  .copyright{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--gray);
+    margin-top:56px;
+  }
+
+  @media (max-width:760px){
+    .nav-links{
+      position:fixed; top:57px; left:0; right:0;
+      background:var(--paper);
+      flex-direction:column; gap:0;
+      border-bottom:1px solid var(--line);
+      max-height:0; overflow:hidden;
+      transition:max-height 0.25s ease;
+    }
+    .nav-links.open{max-height:240px;}
+    .nav-links li{width:100%;}
+    .nav-links a{
+      display:block; padding:16px 28px;
+      border-bottom:1px solid var(--line);
+    }
+    .nav-toggle{
+      display:block;
+      font-family:'IBM Plex Mono', monospace;
+      font-size:12px;
+      text-transform:uppercase;
+      background:none; border:1px solid var(--line-strong);
+      padding:8px 12px; border-radius:2px;
+      cursor:pointer;
+    }
+    .readout-inner{grid-template-columns:repeat(2,1fr);}
+    .stat:nth-child(3){border-left:none;}
+    .case{grid-template-columns:1fr; gap:8px;}
+    .approach-grid{grid-template-columns:1fr;}
+    .footer-grid{flex-direction:column; align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="nav-name" href="#top">Ari Cohen</a>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#work">Work</a></li>
+        <li><a href="resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero wrap" style="padding-top:88px;">
+    <p class="eyebrow">Ari Cohen — Product Designer</p>
+    <h1>I design the parts of healthcare software people actually have to use.</h1>
+    <p>Senior product designer, 7+ years, most recently at Maven Clinic. I work in ambiguous, high-priority territory, take a full concept through to high-fidelity, and stay close to engineering the whole way. Increasingly working closer to the build, using AI tools with judgment rather than by default.</p>
+  </section>
+
+  <section class="readout" aria-label="Selected results">
+    <div class="wrap" style="padding:0;">
+      <div class="readout-inner">
+        <div class="stat">
+          <span class="stat-num">19,000+</span>
+          <span class="stat-label">Lifetime chats, Maven Support Chat</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">48%</span>
+          <span class="stat-label">Support deflection rate</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">18→22%</span>
+          <span class="stat-label">Cycle Tracker widget activation</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">9→12%</span>
+          <span class="stat-label">Second period logging rate</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" class="wrap">
+    <div class="section-head">
+      <h2>Selected work</h2>
+      <span class="section-index">Maven Clinic, 2022–2026</span>
+    </div>
+
+    <div class="case">
+      <span class="case-num">01</span>
+      <div>
+        <h3>Maven Support Chat</h3>
+        <p class="case-role">0→1 · AI feature · Mobile &amp; web</p>
+        <p>Maven's first AI feature in production. I owned the end-to-end experience: information architecture, discoverability, and reconciling AI and human provider messaging across inboxes. Built the flows for live-to-async handoffs and designed escalation and routing for sensitive financial and medical cases.</p>
+        <div class="case-stats">
+          <span class="case-stat"><b>19,000+</b> lifetime chats</span>
+          <span class="case-stat"><b>48%</b> deflection rate</span>
+        </div>
+        <div class="tags">
+          <span class="tag">0→1</span>
+          <span class="tag">AI/UX</span>
+          <span class="tag">IA</span>
+          <span class="tag">Cross-functional</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="case">
+      <span class="case-num">02</span>
+      <div>
+        <h3>Cycle Tracker homepage widget</h3>
+        <p class="case-role">Solo designer · Fertility pillar</p>
+        <p>As the sole designer on Fertility, I owned the most prominent content block on the Fertility homepage. Designed a new card style and a custom cycle-day counter, and built the Featured Action Card content unit used to launch it, later componentized for reuse by other teams.</p>
+        <div class="case-stats">
+          <span class="case-stat"><b>18% → 22%</b> feature activation</span>
+          <span class="case-stat"><b>9% → 12%</b> second period logging</span>
+        </div>
+        <div class="tags">
+          <span class="tag">Design systems</span>
+          <span class="tag">Habit formation</span>
+          <span class="tag">Solo IC</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="case">
+      <span class="case-num">03</span>
+      <div>
+        <h3>Tools &amp; Integrations hub</h3>
+        <p class="case-role">Product navigation · Mobile &amp; web</p>
+        <p>Designed and shipped a centralized destination for tools and integrations, consolidating scattered entry points into one place. Configurable by user eligibility, which freed up homepage space for higher-priority content while keeping tools discoverable. Built initially for Fertility, scoped to scale across all programs.</p>
+        <div class="tags">
+          <span class="tag">Information architecture</span>
+          <span class="tag">Scalable pattern</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="case">
+      <span class="case-num">04</span>
+      <div>
+        <h3>Video appointment redesign</h3>
+        <p class="case-role">Vendor migration · Mobile &amp; web</p>
+        <p>Owned end-to-end redesign of Maven's video appointment experience through a vendor SDK migration. Rebuilt patient and provider flows from scratch within Maven's design system, covering pre- and post-appointment states, device permissions, error handling, and provider EMR note-taking.</p>
+        <div class="tags">
+          <span class="tag">End-to-end</span>
+          <span class="tag">Platform migration</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section id="approach" class="wrap">
+    <div class="section-head">
+      <h2>Approach</h2>
+      <span class="section-index">How I work</span>
+    </div>
+    <div class="approach-grid">
+      <div class="approach">
+        <p>I do my best work in ambiguous, high-priority territory, where the problem isn't fully defined yet and the team needs a point of view fast. I take projects through the full arc, from rough concept to shipped, high-fidelity product, and I stay in the details with engineering the entire way rather than handing off and moving on.</p>
+      </div>
+      <ul class="principles">
+        <li><span class="n">01</span> Full concept-to-ship ownership, not just exploration</li>
+        <li><span class="n">02</span> Close, continuous partnership with engineering and QA</li>
+        <li><span class="n">03</span> Transparent process — show the thinking, not just the polish</li>
+        <li><span class="n">04</span> AI used with judgment, not by default</li>
+        <li><span class="n">05</span> A clear point of view, held under pressure</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h2>Let's talk.</h2>
+        <ul class="contact-list">
+          <li><a href="mailto:ariellacohen614@gmail.com">ariellacohen614@gmail.com</a></li>
+          <li><a href="tel:2032499896">203.249.9896</a></li>
+          <li><a href="https://linkedin.com/in/cohenariella" target="_blank" rel="noopener">linkedin.com/in/cohenariella</a></li>
+        </ul>
+      </div>
+      <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Download résumé</a>
+    </div>
+    <p class="copyright">Ari Cohen — Product Designer</p>
+  </div>
+</footer>
+
+<script>
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('navLinks');
+  toggle.addEventListener('click', function(){
+    var isOpen = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
+</body>
+</html>
