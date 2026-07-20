@@ -186,9 +186,14 @@
     gap:36px;
   }
   .case{
+    display:block;
     border:1px solid var(--line-strong);
     padding:0 0 28px;
+    text-decoration:none;
+    transition:background 0.15s ease;
   }
+  .case:hover{background:rgba(17,17,17,0.03);}
+  .case:hover .case-view{border-bottom-color:var(--ink);}
   .case-img{
     width:100%;
     aspect-ratio:16/10;
@@ -263,6 +268,16 @@
     border:1px solid var(--line-strong);
     padding:4px 9px;
     border-radius:2px;
+  }
+  .case-view{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    color:var(--ink);
+    margin-top:18px;
+    border-bottom:1px solid var(--line);
   }
   @media (max-width:760px){
     .work-grid{grid-template-columns:1fr;}
@@ -399,45 +414,67 @@
 
     <div class="work-grid">
 
-      <div class="case">
+      <a class="case" href="support-chat.html">
         <div class="case-img"><span>Image placeholder</span></div>
         <div class="case-body">
           <span class="case-num">01</span>
-          <h3>Maven Support Chat</h3>
+          <h3>Support Chat</h3>
           <p class="case-role">0→1 · AI feature · Mobile &amp; web</p>
           <p>Maven's first AI feature in production. I owned the end-to-end experience: information architecture, discoverability, and reconciling AI and human provider messaging across inboxes. Built the flows for live-to-async handoffs and designed escalation and routing for sensitive financial and medical cases.</p>
+          <div class="tags">
+            <span class="tag">AI</span>
+            <span class="tag">Messaging</span>
+            <span class="tag">0→1</span>
+          </div>
+          <span class="case-view">View case study →</span>
         </div>
-      </div>
+      </a>
 
-      <div class="case">
+      <a class="case" href="cycle-tracker.html">
         <div class="case-img"><span>Image placeholder</span></div>
         <div class="case-body">
           <span class="case-num">02</span>
-          <h3>Cycle Tracker homepage widget</h3>
+          <h3>Cycle Tracker</h3>
           <p class="case-role">Solo designer · Fertility pillar</p>
           <p>As the sole designer on Fertility, I owned the most prominent content block on the Fertility homepage. Designed a new card style and a custom cycle-day counter, and built the Featured Action Card content unit used to launch it, later componentized for reuse by other teams.</p>
+          <div class="tags">
+            <span class="tag">Homepage</span>
+            <span class="tag">Component system</span>
+            <span class="tag">Fertility</span>
+          </div>
+          <span class="case-view">View case study →</span>
         </div>
-      </div>
+      </a>
 
-      <div class="case">
+      <a class="case" href="pcos-nutrition-module.html">
         <div class="case-img"><span>Image placeholder</span></div>
         <div class="case-body">
           <span class="case-num">03</span>
-          <h3>Tools &amp; Integrations hub</h3>
-          <p class="case-role">Product navigation · Mobile &amp; web</p>
-          <p>Designed and shipped a centralized destination for tools and integrations, consolidating scattered entry points into one place. Configurable by user eligibility, which freed up homepage space for higher-priority content while keeping tools discoverable. Built initially for Fertility, scoped to scale across all programs.</p>
+          <h3>PCOS Nutrition Module</h3>
+          <p class="case-role">[Add role &amp; team]</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam quis nostrud exercitation ullamco laboris.</p>
+          <div class="tags">
+            <span class="tag">[Add tags]</span>
+          </div>
+          <span class="case-view">View case study →</span>
         </div>
-      </div>
+      </a>
 
-      <div class="case">
+      <a class="case" href="video-appointment-redesign.html">
         <div class="case-img"><span>Image placeholder</span></div>
         <div class="case-body">
           <span class="case-num">04</span>
           <h3>Video appointment redesign</h3>
           <p class="case-role">Vendor migration · Mobile &amp; web</p>
           <p>Owned end-to-end redesign of Maven's video appointment experience through a vendor SDK migration. Rebuilt patient and provider flows from scratch within Maven's design system, covering pre- and post-appointment states, device permissions, error handling, and provider EMR note-taking.</p>
+          <div class="tags">
+            <span class="tag">Vendor migration</span>
+            <span class="tag">Video</span>
+            <span class="tag">Design systems</span>
+          </div>
+          <span class="case-view">View case study →</span>
         </div>
-      </div>
+      </a>
 
     </div>
 

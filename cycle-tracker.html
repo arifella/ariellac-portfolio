@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cycle Tracker — Ari Cohen</title>
+<meta name="description" content="Case study: Cycle Tracker homepage widget for Maven's Fertility pillar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#111111;
+    --ink-soft:#3a3a38;
+    --paper:#fafaf8;
+    --line:rgba(17,17,17,0.14);
+    --line-strong:rgba(17,17,17,0.9);
+    --gray:#6e6e6b;
+    --gray-soft:#b8b6b0;
+    --max:1080px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation:none !important; transition:none !important;}
+  }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--ink);
+    outline-offset:3px;
+  }
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 28px;}
+
+  /* NAV */
+  header{
+    position:sticky; top:0; z-index:20;
+    background:rgba(250,250,248,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 0;
+  }
+  .nav-name{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    text-decoration:none;
+  }
+  .nav-links{display:flex; gap:28px; list-style:none; margin:0; padding:0;}
+  .nav-links a{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+    padding-bottom:2px;
+  }
+  .nav-links a:hover{border-bottom-color:var(--ink);}
+  .nav-toggle{display:none;}
+
+  /* CASE HERO */
+  .cs-hero{
+    padding:56px 0 48px;
+    border-bottom:1px solid var(--line);
+  }
+  .cs-back{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    color:var(--gray);
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+    margin-bottom:32px;
+  }
+  .cs-back:hover{border-bottom-color:var(--gray);}
+  .case-num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--gray-soft);
+    display:block;
+    margin-bottom:14px;
+  }
+  h1{
+    font-family:'IBM Plex Sans', sans-serif;
+    font-weight:500;
+    font-size:clamp(32px, 4.6vw, 46px);
+    line-height:1.16;
+    letter-spacing:-0.01em;
+    margin:0 0 14px;
+    max-width:20ch;
+  }
+  .case-role{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    color:var(--gray);
+    margin:0 0 20px;
+  }
+  .tags{
+    display:flex; flex-wrap:wrap; gap:8px;
+    margin-top:20px;
+  }
+  .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    border:1px solid var(--line-strong);
+    padding:4px 9px;
+    border-radius:2px;
+  }
+
+  /* CASE IMAGE */
+  .cs-img{
+    width:100%;
+    aspect-ratio:16/9;
+    margin-top:48px;
+    background:var(--gray-soft);
+    background-image:repeating-linear-gradient(
+      45deg,
+      rgba(17,17,17,0.06),
+      rgba(17,17,17,0.06) 1px,
+      transparent 1px,
+      transparent 14px
+    );
+    border:1px solid var(--line-strong);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .cs-img span{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    color:var(--gray);
+  }
+
+  /* CASE SECTIONS */
+  .cs-section{
+    padding:56px 0;
+    border-bottom:1px solid var(--line);
+    max-width:680px;
+  }
+  .cs-section h2{
+    font-family:'IBM Plex Sans', sans-serif;
+    font-weight:500;
+    font-size:24px;
+    margin:0 0 18px;
+  }
+  .cs-section p{
+    font-size:16px;
+    line-height:1.7;
+    color:var(--ink-soft);
+    margin:0 0 16px;
+  }
+
+  /* PROJECT NAV */
+  .cs-projnav{
+    padding:48px 0;
+    display:flex;
+    justify-content:space-between;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+  .cs-projnav a{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    text-decoration:none;
+    border-bottom:1px solid var(--line-strong);
+  }
+  .cs-projnav a:hover{color:var(--gray);}
+
+  /* FOOTER / CONTACT */
+  footer{
+    border-top:1px solid var(--line);
+    padding:64px 0 48px;
+  }
+  .footer-grid{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:32px;
+  }
+  footer h2{
+    font-family:'IBM Plex Sans', sans-serif;
+    font-weight:500;
+    font-size:30px;
+    margin:0 0 18px;
+    max-width:14ch;
+  }
+  .contact-list{list-style:none; margin:0; padding:0;}
+  .contact-list li{margin-bottom:8px;}
+  .contact-list a{
+    text-decoration:none;
+    border-bottom:1px solid var(--line-strong);
+  }
+  .btn{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    text-decoration:none;
+    color:var(--paper);
+    background:var(--ink);
+    padding:14px 22px;
+    border-radius:2px;
+  }
+  .btn:hover{background:var(--ink-soft);}
+  .copyright{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--gray);
+    margin-top:56px;
+  }
+
+  @media (max-width:760px){
+    .nav-links{
+      position:fixed; top:57px; left:0; right:0;
+      background:var(--paper);
+      flex-direction:column; gap:0;
+      border-bottom:1px solid var(--line);
+      max-height:0; overflow:hidden;
+      transition:max-height 0.25s ease;
+    }
+    .nav-links.open{max-height:240px;}
+    .nav-links li{width:100%;}
+    .nav-links a{
+      display:block; padding:16px 28px;
+      border-bottom:1px solid var(--line);
+    }
+    .nav-toggle{
+      display:block;
+      font-family:'IBM Plex Mono', monospace;
+      font-size:12px;
+      text-transform:uppercase;
+      background:none; border:1px solid var(--line-strong);
+      padding:8px 12px; border-radius:2px;
+      cursor:pointer;
+    }
+    .footer-grid{flex-direction:column; align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="nav-name" href="index.html">Ari Cohen</a>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#work">Work</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="cs-hero wrap">
+    <a class="cs-back" href="index.html#work">← Back to work</a>
+    <span class="case-num">02</span>
+    <h1>Cycle Tracker</h1>
+    <p class="case-role">Solo designer · Fertility pillar</p>
+    <div class="tags">
+      <span class="tag">Homepage</span>
+      <span class="tag">Component system</span>
+      <span class="tag">Fertility</span>
+    </div>
+    <div class="cs-img"><span>Image placeholder</span></div>
+  </section>
+
+  <section class="wrap">
+    <div class="cs-section">
+      <h2>Overview</h2>
+      <p>As the sole designer on Fertility, I owned the most prominent content block on the Fertility homepage. Designed a new card style and a custom cycle-day counter, and built the Featured Action Card content unit used to launch it, later componentized for reuse by other teams.</p>
+    </div>
+    <div class="cs-section">
+      <h2>Problem</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+    <div class="cs-section">
+      <h2>Process</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+    <div class="cs-section" style="border-bottom:none;">
+      <h2>Outcome</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+
+    <div class="cs-projnav">
+      <a href="support-chat.html">← Support Chat</a>
+      <a href="pcos-nutrition-module.html">PCOS Nutrition Module →</a>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h2>Let's talk.</h2>
+        <ul class="contact-list">
+          <li><a href="mailto:ariellacohen614@gmail.com">ariellacohen614@gmail.com</a></li>
+          <li><a href="tel:2032499896">203.249.9896</a></li>
+          <li><a href="https://linkedin.com/in/cohenariella" target="_blank" rel="noopener">linkedin.com/in/cohenariella</a></li>
+        </ul>
+      </div>
+      <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Download résumé</a>
+    </div>
+    <p class="copyright">Ari Cohen — Product Designer</p>
+  </div>
+</footer>
+
+<script>
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('navLinks');
+  toggle.addEventListener('click', function(){
+    var isOpen = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
+</body>
+</html>
