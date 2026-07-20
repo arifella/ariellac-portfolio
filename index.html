@@ -174,45 +174,52 @@
 
   /* SECTION HEADERS */
   section{padding:72px 0;}
-  .section-head{
-    display:flex;
-    align-items:baseline;
-    justify-content:space-between;
-    margin-bottom:44px;
-    border-bottom:1px solid var(--line);
-    padding-bottom:18px;
-  }
-  .section-head h2{
-    font-family:'Fraunces', serif;
-    font-weight:500;
-    font-size:28px;
-    margin:0;
-  }
-  .section-index{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:12px;
-    color:var(--gray);
-  }
 
   /* WORK */
-  .case{
+  .work-grid{
     display:grid;
-    grid-template-columns:100px 1fr;
-    gap:32px;
-    padding:36px 0;
-    border-bottom:1px solid var(--line);
+    grid-template-columns:1fr 1fr;
+    gap:36px;
   }
-  .case:last-child{border-bottom:none;}
+  .case{
+    border:1px solid var(--line-strong);
+    padding:0 0 28px;
+  }
+  .case-img{
+    width:100%;
+    aspect-ratio:16/10;
+    background:var(--gray-soft);
+    background-image:repeating-linear-gradient(
+      45deg,
+      rgba(17,17,17,0.06),
+      rgba(17,17,17,0.06) 1px,
+      transparent 1px,
+      transparent 14px
+    );
+    border-bottom:1px solid var(--line-strong);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .case-img span{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    color:var(--gray);
+  }
+  .case-body{padding:24px 24px 0;}
   .case-num{
     font-family:'IBM Plex Mono', monospace;
     font-size:13px;
     color:var(--gray-soft);
-    padding-top:4px;
+    display:block;
+    margin-bottom:14px;
   }
   .case h3{
     font-family:'Fraunces', serif;
     font-weight:500;
-    font-size:23px;
+    font-size:22px;
     margin:0 0 6px;
   }
   .case-role{
@@ -224,21 +231,20 @@
     margin:0 0 16px;
   }
   .case p{
-    font-size:15.5px;
+    font-size:15px;
     line-height:1.65;
     color:var(--ink-soft);
-    max-width:64ch;
     margin:0 0 14px;
   }
   .case-stats{
     display:flex;
     flex-wrap:wrap;
-    gap:10px 24px;
+    gap:10px 20px;
     margin-top:8px;
   }
   .case-stat{
     font-family:'IBM Plex Mono', monospace;
-    font-size:13px;
+    font-size:12.5px;
   }
   .case-stat b{font-weight:500;}
   .tags{
@@ -253,6 +259,9 @@
     border:1px solid var(--line-strong);
     padding:4px 9px;
     border-radius:2px;
+  }
+  @media (max-width:760px){
+    .work-grid{grid-template-columns:1fr;}
   }
 
   /* APPROACH */
@@ -367,6 +376,7 @@
       <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
       <ul class="nav-links" id="navLinks">
         <li><a href="#work">Work</a></li>
+        <li><a href="about.html">About</a></li>
         <li><a href="resume.pdf" target="_blank" rel="noopener">Resume</a></li>
       </ul>
     </nav>
@@ -378,8 +388,8 @@
   <section class="hero wrap" style="padding-top:88px;">
     <div class="hero-grid">
       <div>
-        <h1>I'm Ari, a Product Designer.</h1>
-        <p>Hi, I'm a Product Designer based in Ohio with 7+ years of experience, most recently at Maven Clinic. Most of my work has been in healthcare, across both B2B and B2C, always with real people in mind.</p>
+        <h1>Hi, I'm Ari.</h1>
+        <p>Product Designer with 7+ years of experience creating products real humans actually use.</p>
       </div>
       <div class="hero-photo">
         <img src="headshot.png" alt="Ari Cohen">
@@ -389,67 +399,48 @@
 
   <section id="work" class="wrap">
 
-    <div class="case">
-      <span class="case-num">01</span>
-      <div>
-        <h3>Maven Support Chat</h3>
-        <p class="case-role">0→1 · AI feature · Mobile &amp; web</p>
-        <p>Maven's first AI feature in production. I owned the end-to-end experience: information architecture, discoverability, and reconciling AI and human provider messaging across inboxes. Built the flows for live-to-async handoffs and designed escalation and routing for sensitive financial and medical cases.</p>
-        <div class="case-stats">
-          <span class="case-stat"><b>19,000+</b> lifetime chats</span>
-          <span class="case-stat"><b>48%</b> deflection rate</span>
-        </div>
-        <div class="tags">
-          <span class="tag">0→1</span>
-          <span class="tag">AI/UX</span>
-          <span class="tag">IA</span>
-          <span class="tag">Cross-functional</span>
-        </div>
-      </div>
-    </div>
+    <div class="work-grid">
 
-    <div class="case">
-      <span class="case-num">02</span>
-      <div>
-        <h3>Cycle Tracker homepage widget</h3>
-        <p class="case-role">Solo designer · Fertility pillar</p>
-        <p>As the sole designer on Fertility, I owned the most prominent content block on the Fertility homepage. Designed a new card style and a custom cycle-day counter, and built the Featured Action Card content unit used to launch it, later componentized for reuse by other teams.</p>
-        <div class="case-stats">
-          <span class="case-stat"><b>18% → 22%</b> feature activation</span>
-          <span class="case-stat"><b>9% → 12%</b> second period logging</span>
-        </div>
-        <div class="tags">
-          <span class="tag">Design systems</span>
-          <span class="tag">Habit formation</span>
-          <span class="tag">Solo IC</span>
+      <div class="case">
+        <div class="case-img"><span>Image placeholder</span></div>
+        <div class="case-body">
+          <span class="case-num">01</span>
+          <h3>Maven Support Chat</h3>
+          <p class="case-role">0→1 · AI feature · Mobile &amp; web</p>
+          <p>Maven's first AI feature in production. I owned the end-to-end experience: information architecture, discoverability, and reconciling AI and human provider messaging across inboxes. Built the flows for live-to-async handoffs and designed escalation and routing for sensitive financial and medical cases.</p>
         </div>
       </div>
-    </div>
 
-    <div class="case">
-      <span class="case-num">03</span>
-      <div>
-        <h3>Tools &amp; Integrations hub</h3>
-        <p class="case-role">Product navigation · Mobile &amp; web</p>
-        <p>Designed and shipped a centralized destination for tools and integrations, consolidating scattered entry points into one place. Configurable by user eligibility, which freed up homepage space for higher-priority content while keeping tools discoverable. Built initially for Fertility, scoped to scale across all programs.</p>
-        <div class="tags">
-          <span class="tag">Information architecture</span>
-          <span class="tag">Scalable pattern</span>
+      <div class="case">
+        <div class="case-img"><span>Image placeholder</span></div>
+        <div class="case-body">
+          <span class="case-num">02</span>
+          <h3>Cycle Tracker homepage widget</h3>
+          <p class="case-role">Solo designer · Fertility pillar</p>
+          <p>As the sole designer on Fertility, I owned the most prominent content block on the Fertility homepage. Designed a new card style and a custom cycle-day counter, and built the Featured Action Card content unit used to launch it, later componentized for reuse by other teams.</p>
         </div>
       </div>
-    </div>
 
-    <div class="case">
-      <span class="case-num">04</span>
-      <div>
-        <h3>Video appointment redesign</h3>
-        <p class="case-role">Vendor migration · Mobile &amp; web</p>
-        <p>Owned end-to-end redesign of Maven's video appointment experience through a vendor SDK migration. Rebuilt patient and provider flows from scratch within Maven's design system, covering pre- and post-appointment states, device permissions, error handling, and provider EMR note-taking.</p>
-        <div class="tags">
-          <span class="tag">End-to-end</span>
-          <span class="tag">Platform migration</span>
+      <div class="case">
+        <div class="case-img"><span>Image placeholder</span></div>
+        <div class="case-body">
+          <span class="case-num">03</span>
+          <h3>Tools &amp; Integrations hub</h3>
+          <p class="case-role">Product navigation · Mobile &amp; web</p>
+          <p>Designed and shipped a centralized destination for tools and integrations, consolidating scattered entry points into one place. Configurable by user eligibility, which freed up homepage space for higher-priority content while keeping tools discoverable. Built initially for Fertility, scoped to scale across all programs.</p>
         </div>
       </div>
+
+      <div class="case">
+        <div class="case-img"><span>Image placeholder</span></div>
+        <div class="case-body">
+          <span class="case-num">04</span>
+          <h3>Video appointment redesign</h3>
+          <p class="case-role">Vendor migration · Mobile &amp; web</p>
+          <p>Owned end-to-end redesign of Maven's video appointment experience through a vendor SDK migration. Rebuilt patient and provider flows from scratch within Maven's design system, covering pre- and post-appointment states, device permissions, error handling, and provider EMR note-taking.</p>
+        </div>
+      </div>
+
     </div>
 
   </section>
