@@ -305,26 +305,38 @@
 
   <section class="wrap">
     <div class="cs-section">
-      <h2>Overview</h2>
-      <p>A new patient-tracking system built into Signify Health's Episode Connect platform, replacing a manual offline spreadsheet used by the entire care team.</p>
+      <h2>The problem</h2>
+      <p>Signify Health manages 90-day episodes of care for health systems and hospitals. The internal team responsible for tracking bundle patients (and their data on length of stay, readmissions, facility notes) wasn't doing any of it in Signify's product, “Episode Connect.” They were doing it in an Excel spreadsheet.</p>
+      <p>Leadership had developed a "Standard SNF Census" template for that entire team to use, but almost no two users' sheets looked the same. People had forked it, added columns, and built their own tracking logic. The spreadsheet had become the real product; Episode Connect was where they copied data into afterward.</p>
     </div>
     <div class="cs-section">
-      <h2>The Problem</h2>
-      <p>Care team users tracked and managed their patients manually in an ad hoc Excel spreadsheet outside the actual product. No two spreadsheets looked the same, and users were duplicating work between the sheet and the platform itself.</p>
+      <h2>Research</h2>
+      <p>I ran 9 discovery sessions with users from the target group, then fielded a survey to the full population of 50 to get more structured data on how people were actually using the census sheet: workflow, documentation habits, format preferences, pain points.</p>
+      <p>What came back was that users were spending many hours a week managing this spreadsheet, and even sharing their custom sheets with their managers and colleagues.</p>
+      <p>I asked users to rank what information mattered most, and got a clear, consistent order: length of stay, episodic length of stay, current facility, notes from facility discussions, anticipated discharge, bundle/DRG, anchor facility, anchor discharge date. That ranking became the spec for what the new feature needed to surface first, and in what order.</p>
     </div>
     <div class="cs-section">
-      <h2>What I Did</h2>
+      <h2>Design</h2>
+      <p>The direction was to bring this workflow natively into Episode Connect rather than have users maintain a shadow spreadsheet. I used AG Grid as a reference for the table mechanics, sorting, filtering, column configuration, since it matched the flexibility users had built for themselves informally.</p>
+      <div class="cs-img"><span>Image placeholder</span></div>
+      <p>The MVP scope:</p>
       <ul>
-        <li>Ran 9 discovery sessions and a 50-person mixed-methods survey to understand actual workflow and pain points before designing anything</li>
-        <li>Prioritized which patient fields mattered most (length of stay, current location, notes, anticipated discharge) based on ranked user response data, not assumption</li>
-        <li>Designed a customizable table view in Episode Connect with follow/unfollow actions, replacing the spreadsheet entirely</li>
-        <li>Built in flexibility (sortable, filterable, column visibility saved between sessions) based on the range of user needs surfaced in research</li>
+        <li>A "Patients Followed" table, a new tab in the left nav, showing only the patients a user chose to track</li>
+        <li>A follow/unfollow action available from other views in the product, so people could add patients as they worked instead of doing it as a separate step</li>
+        <li>Row-level fields matched to the research-ranked priorities: bundle, current location, readmission status, ELOS, and a one-click link to that patient's most recent note</li>
+        <li>Click-through from any row to the full patient profile</li>
       </ul>
-      <div class="cs-img"><span>Screenshots placeholder</span></div>
+      <p>The scope decision that mattered most wasn't what to include, it was what to leave out. Users' spreadsheets had years of accumulated one-off logic. Replicating all of it would have shipped nothing. I held the MVP to the ranked list from research and treated everything else as backlog.</p>
     </div>
     <div class="cs-section" style="border-bottom:none;">
       <h2>Outcome</h2>
-      <p>Reduced time spent managing patients by 8.5 hours per week per user. The original spreadsheet was fully sunset, with the entire user group moved onto the new workflow.</p>
+      <p>Post-launch, the Standard SNF Census sheet was fully sunset - users moved their tracking into Episode Connect and stayed there. In follow-up research, users reported the feature helped them:</p>
+      <ul>
+        <li>Track patients per facility ahead of facility meetings</li>
+        <li>See at a glance where a patient currently was, especially after a readmission</li>
+        <li>Get to a patient's latest note in one click instead of navigating to the full profile</li>
+        <li>Clean up their followed list as patients were discharged or transferred out of their responsibility</li>
+      </ul>
     </div>
 
     <div class="cs-projnav">
