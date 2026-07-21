@@ -173,6 +173,21 @@
     color:var(--ink-soft);
     margin:0 0 16px;
   }
+  .cs-section h3{
+    font-family:'IBM Plex Sans', sans-serif;
+    font-weight:500;
+    font-size:18px;
+    margin:32px 0 14px;
+  }
+  .cs-section .cs-img{
+    margin:32px 0 0;
+  }
+  .cs-caption{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--gray);
+    margin:12px 0 0;
+  }
 
   /* PROJECT NAV */
   .cs-projnav{
@@ -299,19 +314,29 @@
   <section class="wrap">
     <div class="cs-section">
       <h2>Overview</h2>
-      <p>Maven's first AI feature in production. I owned the end-to-end experience: information architecture, discoverability, and reconciling AI and human provider messaging across inboxes. Built the flows for live-to-async handoffs and designed escalation and routing for sensitive financial and medical cases.</p>
+      <p>I led end-to-end design for Maven's first 0→1 AI feature across iOS, Android and web. It shipped to all users in production in 2025.</p>
     </div>
     <div class="cs-section">
       <h2>Problem</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p>Every support interaction became a Zendesk ticket. There was no self-serve deflection path. Concretely: a member opens the app, messages her Care Advocate, and waits. Behind the scenes a ticket forms in Zendesk, the team triages and tags it, escalates or self-assigns, and drafts a reply using macros. The reply reaches the member through her Care Advocate thread, but from someone else entirely, anywhere from within the hour to three business days later.</p>
+      <p>That model meant every interaction depended on human availability, which drove up cost to serve and slowed response even for routine, easily answerable questions. Maven had no existing model for how AI should handle trust-sensitive conversations at this scale, but this was identified as the highest-impact opportunity to start.</p>
     </div>
     <div class="cs-section">
       <h2>Process</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p>I led a cross-functional working group (Support, Engineering, Product, Clinical), where I tested early concepts against real scenarios before committing to a direction.</p>
+      <p>From there I presented a 3-year north star vision to leadership. I then brought that vision back to what was buildable with our current design system, mapping which questions AI could resolve end to end versus which needed to route straight to a human based on topic.</p>
+      <p>In parallel, engineering was evaluating the build approach. I designed critical pieces of the flow to make the tradeoffs concrete across three options under consideration, work that fed directly into the vendor decision.</p>
+      <p>Two threads ran alongside the core flow. Entry points: I had to find and replace every instance in the product that told users to message their Care Advocate, and design new discovery points for people who wouldn't have known to look for support otherwise. Inbox mechanics: message threading, end-of-conversation states, CSAT, reopening closed conversations, multiple participants in one thread, unread counts, notifications, subject lines, snippet previews, and visual distinction between provider and support messages.</p>
+      <p>I maintained an organized, annotated Figma file throughout as the project's source of truth, which engineering used as the actual build blueprint. The team shipped a limited internal release first before the general rollout, which let us validate the AI-handled and human-handoff logic before full member exposure.</p>
+      <h3>Constraints throughout</h3>
+      <p>This was a 0→1 build inside an already-established product, not a green field. Escalation logic for sensitive financial and medical questions needed to be rock-solid. Support and human-provider messaging had to be reconciled without confusing the member about who they were talking to. And Zendesk didn't disappear: I had to design how the concept of a "ticket" persisted, on the backend and in the user-facing experience, inside something that now looked and felt like a conversation.</p>
+      <p>Post-launch, I continued leading the work through scaling: designing live chat-to-async handoffs, handling Wallet-specific questions without losing context, and refining discoverability through contextual entry points across the app. As agentic chat efforts expanded, I supported other designers working in that space, which helped inform Maven's continued direction.</p>
+      <div class="cs-img"><span>Image placeholder</span></div>
+      <p class="cs-caption">Entry-point screens, AI-handled vs. handoff-to-human flow comparison, inbox states</p>
     </div>
     <div class="cs-section" style="border-bottom:none;">
       <h2>Outcome</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p>Shipped to all users in production with 91% deflection / 12,000+ questions in 4 months, reviewed regularly by executive leadership.</p>
     </div>
 
     <div class="cs-projnav">
