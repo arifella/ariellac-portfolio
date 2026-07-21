@@ -111,6 +111,14 @@
     color:var(--gray);
     margin:0 0 20px;
   }
+  .cs-meta{margin:0 0 20px;}
+  .cs-meta p{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--gray);
+    margin:0 0 4px;
+  }
+  .cs-meta strong{color:var(--ink); font-weight:500;}
   .tags{
     display:flex; flex-wrap:wrap; gap:8px;
     margin-top:20px;
@@ -150,6 +158,11 @@
     letter-spacing:0.04em;
     color:var(--gray);
   }
+  .cs-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
 
   /* CASE SECTIONS */
   .cs-section{
@@ -162,11 +175,27 @@
     font-size:24px;
     margin:0 0 18px;
   }
+  .cs-section h3{
+    font-family:'IBM Plex Sans', sans-serif;
+    font-weight:500;
+    font-size:18px;
+    margin:32px 0 14px;
+  }
+  .cs-section h3:first-of-type{margin-top:0;}
   .cs-section p{
     font-size:16px;
     line-height:1.7;
     color:var(--ink-soft);
     margin:0 0 16px;
+  }
+  .cs-section .cs-img{
+    margin:32px 0 0;
+  }
+  .cs-caption{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--gray);
+    margin:12px 0 0;
   }
 
   /* PROJECT NAV */
@@ -282,7 +311,11 @@
     <a class="cs-back" href="index.html#work">← Back to work</a>
     <span class="case-num">02</span>
     <h1>Cycle Tracker</h1>
-    <p class="case-role">Solo designer · Fertility pillar</p>
+    <div class="cs-meta">
+      <p><strong>Role:</strong> Product Designer (PD3), Maven Clinic</p>
+      <p><strong>Team:</strong> [Squad name], with [PM name] and [eng lead name]</p>
+      <p><strong>Timeline:</strong> [dates]</p>
+    </div>
     <div class="tags">
       <span class="tag">Homepage</span>
       <span class="tag">Component system</span>
@@ -294,19 +327,31 @@
   <section class="wrap">
     <div class="cs-section">
       <h2>Overview</h2>
-      <p>As the sole designer on Fertility, I owned the most prominent content block on the Fertility homepage. Designed a new card style and a custom cycle-day counter, and built the Featured Action Card content unit used to launch it, later componentized for reuse by other teams.</p>
+      <p>Cycle Tracker is core to how Maven supports fertility members trying to conceive naturally. [X]% of fertility members using Cycle Tracker go on to achieve unassisted conception. <em>(Confirm this stat before publishing. It's shown up as both 30% and 32% in different drafts. Pick one, cite the source, and use it consistently everywhere this feature is discussed.)</em></p>
+      <p>I worked on Cycle Tracker across three initiatives over [timeframe]: a homepage widget to drive discoverability, an Oura integration to bring in wearable-based cycle data, and a set of smaller changes aimed at adoption and engagement.</p>
     </div>
     <div class="cs-section">
-      <h2>Problem</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <h2>1. Homepage widget</h2>
+      <h3>Problem</h3>
+      <p>Cycle Tracker was a feature members had to seek out. Usage among members who could benefit from it was lower than it should have been, because the feature had no presence on the homepage, the first screen most members saw after logging in.</p>
+      <h3>What I did</h3>
+      <p>[1-2 sentences on your actual process: what you tested, what constraints you worked within, why a widget was the right call over other options you considered.]</p>
+      <h3>Result</h3>
+      <p>Shipping the widget increased feature utilization by [X]%. <em>(This needs to be a real number before this ships. Pull it from Mixpanel. A placeholder percentage reads as unfinished, not aspirational.)</em></p>
     </div>
     <div class="cs-section">
-      <h2>Process</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <h2>2. Oura integration</h2>
+      <h3>Problem</h3>
+      <p>Cycle Tracker relied on member-reported data for ovulation prediction. Members using wearables had more precise data sitting unused, and Maven had no first-to-market wearable integration in this space.</p>
+      <h3>What I did</h3>
+      <p>I led the design of Maven's integration with Oura, bringing FDA-listed ovulation prediction data directly into Cycle Tracker. <em>[Add a sentence on the actual design problem: how you handled data trust and accuracy framing for members, how you designed the connection flow, what made this different from a generic third-party integration.]</em></p>
+      <h3>Result</h3>
+      <p>This was Maven's first wearable data integration and made ovulation-confirmation data more precise for members who used it. The goal was a 20% increase in ovulation-confirmation tool usage. <em>(State whether you hit this. If you don't have the actual number, get it from Mixpanel or Looker before publishing. "The goal was X" with no result reads like the project didn't finish.)</em></p>
     </div>
     <div class="cs-section" style="border-bottom:none;">
-      <h2>Outcome</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <h2>3. Adoption and engagement improvements</h2>
+      <div class="cs-img"><span>Image placeholder</span></div>
+      <p class="cs-caption">Content pending — add problem, approach, and result once finalized.</p>
     </div>
 
     <div class="cs-projnav">
