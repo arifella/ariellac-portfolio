@@ -327,29 +327,64 @@
   <section class="wrap">
     <div class="cs-section">
       <h2>Overview</h2>
-      <p>I led end-to-end design for Maven's first 0→1 AI feature across iOS, Android and web. It shipped to all users in production in 2025.</p>
+      <p>Maven's first 0→1 AI feature, designed end-to-end across all platforms, from early concept testing through influencing company-wide AI strategy.</p>
     </div>
     <div class="cs-section">
       <h2>Problem</h2>
-      <p>Every support interaction became a Zendesk ticket. There was no self-serve deflection path. Concretely: a member opens the app, messages her Care Advocate, and waits. Behind the scenes a ticket forms in Zendesk, the team triages and tags it, escalates or self-assigns, and drafts a reply using macros. The reply reaches the member through her Care Advocate thread, but from someone else entirely, anywhere from within the hour to three business days later.</p>
-      <p>That model meant every interaction depended on human availability, which drove up cost to serve and slowed response even for routine, easily answerable questions. Maven had no existing model for how AI should handle trust-sensitive conversations at this scale, but this was identified as the highest-impact opportunity to start.</p>
+      <p>When this project kicked off, every support question, no matter how routine, followed the same path for all users (across Maven's 28M covered lives.) A user would open the app and message their assigned Care Advocate…then wait. This was the case for topics of all kinds, ranging from complex medical and financial questions, to basic needs like appointment booking and provider recommendations.</p>
+      <p>Behind the scenes, a ticket was formed in Zendesk. The 24/7 Support team triaged it, tagged it, escalated it or self-assigned it, and drafted a reply using macros. Eventually the answer reached the user through the same original Care Advocate message thread, but from someone else entirely, and anywhere from within the hour up to three business days later. At the same time, users were expressing the desire to be able to get information for themself more; not everything warranted a back and forth chat with a Care Advocate, they just had a quick question.</p>
+      <div class="cs-img"><span>Image placeholder</span></div>
+      <p>The volume made the math unforgiving. Support fielded at least 300,000 tickets a year, and rising. There was no self-serve path. No deflection. Every interaction, whether it was a complex clinical question or something that could've been answered in a sentence, depended on a human being available to pick it up. That drove up cost to serve and slowed response times across the board, even for the easy cases.</p>
+      <p>Maven had no existing model for how AI should handle a conversation this trust-sensitive, at this scale. But it was clear this was the highest-impact opportunity to leverage new technology.</p>
     </div>
     <div class="cs-section">
       <h2>Process</h2>
       <p>I led a cross-functional working group (Support, Engineering, Product, Clinical), where I tested early concepts against real scenarios before committing to a direction.</p>
-      <p>From there I presented a 3-year north star vision to leadership. I then brought that vision back to what was buildable with our current design system, mapping which questions AI could resolve end to end versus which needed to route straight to a human based on topic.</p>
-      <p>In parallel, engineering was evaluating the build approach. I designed critical pieces of the flow to make the tradeoffs concrete across three options under consideration, work that fed directly into the vendor decision.</p>
-      <p>Two threads ran alongside the core flow. Entry points: I had to find and replace every instance in the product that told users to message their Care Advocate, and design new discovery points for people who wouldn't have known to look for support otherwise. Inbox mechanics: message threading, end-of-conversation states, CSAT, reopening closed conversations, multiple participants in one thread, unread counts, notifications, subject lines, snippet previews, and visual distinction between provider and support messages.</p>
-      <p>I maintained an organized, annotated Figma file throughout as the project's source of truth, which engineering used as the actual build blueprint. The team shipped a limited internal release first before the general rollout, which let us validate the AI-handled and human-handoff logic before full member exposure.</p>
-      <h3>Constraints throughout</h3>
-      <p>This was a 0→1 build inside an already-established product, not a green field. Escalation logic for sensitive financial and medical questions needed to be rock-solid. Support and human-provider messaging had to be reconciled without confusing the member about who they were talking to. And Zendesk didn't disappear: I had to design how the concept of a "ticket" persisted, on the backend and in the user-facing experience, inside something that now looked and felt like a conversation.</p>
-      <p>Post-launch, I continued leading the work through scaling: designing live chat-to-async handoffs, handling Wallet-specific questions without losing context, and refining discoverability through contextual entry points across the app. As agentic chat efforts expanded, I supported other designers working in that space, which helped inform Maven's continued direction.</p>
+      <p>From there I presented a 3-year north star vision to leadership. I then brought that vision back to what was buildable with our current design system, mapping which questions AI could resolve end-to-end versus which needed to route straight to a human based on topic. Given the sensitive nature of the business, I constantly pressure tested different paths the experience could take against tough real-world scenarios.</p>
+      <div class="cs-img"><span>Image placeholder</span></div>
+      <p>In parallel, engineering was evaluating the build approach (3rd party vs custom internal build). I designed critical pieces of the flow to visualize the tradeoffs across the different options under consideration, work that fed directly into the vendor decision.</p>
+    </div>
+    <div class="cs-section">
+      <h2>Two Parallel Threads</h2>
+      <p>Two other threads ran alongside the core AI chat interface flow, each with its own design complexity.</p>
+      <h3>Mental model &amp; discoverability</h3>
+      <p>The app was already full of entry points telling users to message their Care Advocate. Each one routed people past the new self-serve path and back into the ticket queue. Established users were already so used to following the existing path to get any question answered. I had to unravel how we would surface Support Chat in the app, infuse lightweight, evergreen product education, and convert them to use it—even while the original Care Advocate thread was technically still accessible.</p>
+      <div class="cs-img"><span>Image placeholder</span></div>
+      <p>The harder part was positioning this within a brand that prides itself on the human touch: promoting the new AI-first support in a way that didn't read as a downgrade from the human care members expected. The quality bar had to remain just as high, the product just as trustworthy.</p>
+      <h3>Inbox mechanics</h3>
+      <p>The Care Advocate thread that users historically asked support questions in had always been a single conversation thread, alongside 1:1 messages with providers, with an inbox that functioned like text message inboxes. Adding an AI support chat into that same paradigm made things much messier.</p>
+      <p>Through a process of iteration, user testing and collecting feedback, I was able to land an MVP design that matched both user expectations and business priorities.</p>
+      <p>The hardest parts were making AI-to-human handoff legible within a single thread, and defining what 'resolved' even means when AI, not a person, is the one closing the conversation.</p>
+      <div class="cs-img"><span>Image placeholder</span></div>
+      <p>Working across my two primary flows (“I have a question AI can solve” and “I have a question that needs human attention”) I built out prototypes that helped me fine tune the end-to-end experience within the overall messaging framework.</p>
+    </div>
+    <div class="cs-section">
+      <h2>Look and feel</h2>
+      <p>Most of the interface leaned on Maven's existing design system, extended where needed for new cases like sender distinction and AI-to-human handoff. Getting there wasn't a single pass. Entry points alone went through several rounds of exploration, from subtle inline prompts to more prominent standalone entry cards, before landing on something that converted without feeling forced on users who didn't need it. The inbox itself took even more iteration, since every version had to be tested against how it would actually feel once human messages and numerous new threads with Support Chat were sitting in the same inbox.</p>
+      <p>Landing the right tone mattered as much as the visual work, so I consulted Brand and Copy to sanity-check voice and visual direction along the way. The feature was built simultaneously across mobile and web, so I designed both in parallel from the start.</p>
+    </div>
+    <div class="cs-section">
+      <h2>Development</h2>
+      <p>I brought engineering into the design process early and often. That wasn't just walking them through visual plans, it went both ways: understanding how chat storage, keyword detection, and the AI model itself actually worked shaped decisions I made on the design side, and their callouts on feasibility shaped what I was willing to negotiate on and what I held firm on.</p>
+      <p>I stayed close to quality after handoff too. I tested the tool myself with my Product Manager, asking it real questions and evaluating whether the answers were actually correct, not just whether the UI rendered right. We also stood up a Slack channel for internal dogfooding, where Mavens could try the feature on their own accounts and flag both bugs and any answer that didn't match what they'd expect from the AI.</p>
+      <p>I maintained an organized, annotated Figma file throughout as the project's source of truth, which engineering used directly as the build blueprint. Before release, I planned and led a 20-person Tigers, Paper Tigers, and Elephants pre-mortem to surface risks the team hadn't said out loud yet.</p>
+    </div>
+    <div class="cs-section">
+      <h2>Constraints</h2>
+      <p>This was a 0→1 build inside an already-established product, not a greenfield one. Escalation logic for sensitive financial and medical questions needed to be solid, since getting it wrong had real consequences for members. Support and human-provider messaging had to be reconciled without confusing the user about who they were actually talking to. And Zendesk didn't disappear: tickets still existed, so I had to design the user-facing experience to account for that underlying system.</p>
+      <p>The visual direction had its own challenges. An AI agent arguably needed to look and feel distinct from the rest of the product, but the brand wasn't ready to commit to that distinction yet, so the MVP had to read as new without reading as a departure.</p>
+      <p>This was also a high-visibility project. Executive leadership was following it, operations stakeholders were involved throughout, a large engineering team was building it, it shipped across three platforms at once, and the data running through it was sensitive. That added a level of scrutiny to most decisions.</p>
+    </div>
+    <div class="cs-section">
+      <h2>Post-MVP</h2>
+      <p>Scaling Support Chat meant that I continued to design more niche handoff flows, handling specific questions like fertility treatment costs without losing conversation context, and refining discoverability through contextual entry points across the app. UI and visual fine-tuning continued alongside all of it.</p>
+      <p>As the effort evolved into its next phase under the new broader “Maven Intelligence”, with Support Chat rebranded as Assistant, I moved on to a new team but continued to be involved as the PD subject matter expert, supporting the designers who took over that space.</p>
       <div class="cs-img"><span>Image placeholder</span></div>
       <p class="cs-caption">Entry-point screens, AI-handled vs. handoff-to-human flow comparison, inbox states</p>
     </div>
     <div class="cs-section" style="border-bottom:none;">
       <h2>Outcome</h2>
-      <p>Shipped to all users in production with 91% deflection / 12,000+ questions in 4 months, reviewed regularly by executive leadership.</p>
+      <p>The team shipped a limited internal release first to validate AI-handled and human-handoff logic before full rollout. In 2025, Support Chat shipped to all users in production with 91% deflection across 12,000+ questions in the first four months.</p>
     </div>
 
     <div class="cs-projnav">
