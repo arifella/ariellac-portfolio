@@ -187,7 +187,7 @@
     margin:0 0 16px;
   }
   .cs-section .cs-img{
-    margin:32px 0 0;
+    margin:32px 0;
   }
   .cs-caption{
     font-family:'IBM Plex Mono', monospace;
@@ -222,16 +222,22 @@
   .footer-grid{
     display:flex;
     justify-content:space-between;
-    align-items:flex-end;
+    align-items:center;
     flex-wrap:wrap;
     gap:32px;
+  }
+  .footer-contact{
+    display:flex;
+    align-items:center;
+    flex-wrap:nowrap;
+    gap:20px;
   }
   footer h2{
     font-family:'DM Sans', sans-serif;
     font-weight:500;
     font-size:30px;
-    margin:0 0 18px;
-    max-width:14ch;
+    margin:0;
+    white-space:nowrap;
   }
   .footer-link{
     color:inherit;
@@ -280,6 +286,11 @@
     color:var(--ink-soft);
     margin:0 0 24px;
     max-width:38ch;
+  }
+  .footer-contact .footer-intro{
+    margin:0;
+    max-width:none;
+    white-space:nowrap;
   }
   .contact-form{
     display:flex;
@@ -417,6 +428,8 @@
       cursor:pointer;
     }
     .footer-grid{flex-direction:column; align-items:flex-start;}
+    .footer-contact{flex-wrap:wrap;}
+    .footer-contact .footer-intro{white-space:normal; max-width:38ch;}
   }
 </style>
 </head>
@@ -450,12 +463,13 @@
       <span class="tag">Oura</span>
       <span class="tag">Fellow</span>
     </div>
+    <div class="cs-img"><span>Image placeholder</span></div>
   </section>
 
   <section class="wrap">
     <div class="cs-section">
       <h2>The problem space</h2>
-      <p>Most people trying to conceive don't lack information, they lack access to it at the right moment. Cycle signals go unnoticed because they're buried instead of surfaced. Diagnostic testing defaults to one partner, leaving a major factor unexamined. Conditions that need a different kind of care get routed through a generic fertility path instead of one built for them.</p>
+      <p>Most people trying to conceive don't lack information, they lack access to it at the right moment. Cycle signals go unnoticed because they're buried instead of surfaced. Diagnostic testing defaults to one partner, leaving a major factor unexamined. Conditions that need a different kind of care get routed through a generic fertility path instead of one built for them. [Read <a href="https://www.prnewswire.com/news-releases/maven-clinic-introduces-cycle-tracker-and-male-fertility-tools-designed-to-help-people-get-pregnant-sooner-302527254.html" target="_blank" rel="noopener">Maven's press release</a> about this release]</p>
       <p>My work on the fertility experience at Maven focused on closing those specific gaps: surfacing cycle data earlier, replacing single point-in-time testing with continuous signal, filling a diagnostic blind spot, and building a path for a condition that doesn't fit the standard model.</p>
     </div>
 
@@ -469,6 +483,7 @@
       <h3>What I designed</h3>
       <p>This was two product problems in one interface: convert users who hadn't onboarded, retain and drive action for those who had. I designed 12 versions across two tracks, Trying to Conceive and Preconception, each solving for a different moment in the user's relationship with the feature. It shipped on iOS and Android at full fidelity in 2026, with a simplified version for web.</p>
       <p>This widget holds the highest-value real estate on the homepage, the top slot every fertility user sees first, which reflects how central Cycle Tracker was meant to be to a user's day-to-day use of the product.</p>
+      <div class="cs-img"><span>Image placeholder</span></div>
       <p>I designed a new card component for Maven's design system, built as a reusable foundation rather than a one-off. I also designed a new way to represent cycle day: a circular indicator that updates dynamically as a user moves through their cycle, instead of a static number or date. Copy stayed short and specific by design, enough to earn a click, not fill space.</p>
       <p><strong>Not yet onboarded:</strong> made the case for Cycle Tracker's value fast enough to convert someone who hadn't engaged with the feature at all.</p>
       <p><strong>Already onboarded:</strong> anchored by the circular cycle-day visual, paired with context on what a user might be experiencing at that stage and a phase-specific CTA, so the widget drove action, not just information.</p>
@@ -495,6 +510,7 @@
 
       <h3>What I designed</h3>
       <p>This was a partnership project, which meant designing inside someone else's constraints as much as my own. I worked directly with Oura's Product, Design, Legal, and Compliance teams, alongside my Product and Engineering colleagues, to figure out how their data could live inside Maven's product without compromising either company's standards.</p>
+      <div class="cs-img"><span>Image placeholder</span></div>
       <p><strong>Ovulation status, made unambiguous.</strong> The core challenge was making sure Fertile Window, Predicted Ovulation, and Confirmed Ovulation were crystal clear: what each one meant, how it showed up as icons in the calendar view, and how it was explained in plain language in the bottom sheet, all while clearly tying the data back to Oura as the source. I designed this new visual and content language to sit naturally inside Maven's existing design system, without a full redesign of Cycle Tracker or the calendar. Since this introduced concepts users hadn't seen before, I ran comprehension testing directly rather than assuming it would land, and all 20 users tested correctly interpreted what the visuals were meant to convey.</p>
       <p><strong>Settings.</strong> Adding the integration meant new controls users needed to manage, so I took apart the existing Cycle Tracker settings page and rebuilt it to accommodate them cleanly.</p>
       <p><strong>Provider view in MPractice.</strong> Users weren't the only audience. I designed the equivalent data visualization inside MPractice, Maven's proprietary EMR, where providers already view cycle data. Providers now see the same Oura-sourced cycle data their patient sees, giving care teams the same complete picture during appointments and clinical decision-making.</p>
@@ -519,6 +535,7 @@
       <p>I built two paths into the same offering, since the person discovering it and the person completing it aren't always the same user.</p>
       <p><strong>For male users:</strong> a flow to learn about the Fellow offering and move straight into ordering the kit, designed to lower the barrier of a topic men are often reluctant to engage with at all.</p>
       <p><strong>For female fertility users:</strong> a parallel flow to learn about the offering and share it with a male partner, so testing could be introduced by someone already inside the Maven experience instead of requiring the partner to seek it out cold.</p>
+      <div class="cs-img"><span>Image placeholder</span></div>
       <p>The centerpiece of the work was a new homepage content unit I created called the Featured Action Card. It sits at the top of the fertility homepage, the same high-value real estate reserved for the most important actions we needed users to take. Given how much resistance exists around this specific topic, the card had to do more than inform, it had to capture attention and create enough urgency to move someone from awareness to action.</p>
     </div>
 
