@@ -315,6 +315,51 @@
   }
   .form-status.success{color:#1e7a3c;}
   .form-status.error{color:#d94f3d;}
+  .modal-overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(17,17,17,0.5);
+    z-index:100;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+  }
+  .modal-overlay.open{display:flex;}
+  body.modal-open{overflow:hidden;}
+  .modal{
+    position:relative;
+    background:var(--paper);
+    border:1px solid var(--line-strong);
+    border-radius:4px;
+    padding:36px;
+    max-width:440px;
+    width:100%;
+    max-height:90vh;
+    overflow-y:auto;
+  }
+  .modal h2{
+    font-family:'DM Sans', sans-serif;
+    font-weight:500;
+    font-size:26px;
+    margin:0 0 12px;
+  }
+  .modal .footer-intro{max-width:none;}
+  .modal .contact-form{max-width:none; margin-bottom:0;}
+  .modal-close{
+    position:absolute;
+    top:16px; right:16px;
+    width:32px; height:32px;
+    display:flex; align-items:center; justify-content:center;
+    background:none;
+    border:1px solid var(--line-strong);
+    border-radius:2px;
+    font-size:20px;
+    line-height:1;
+    color:var(--ink);
+    cursor:pointer;
+  }
+  .modal-close:hover{background:var(--line);}
   .copyright{
     font-family:'IBM Plex Mono', monospace;
     font-size:11px;
@@ -430,24 +475,7 @@
       <div class="footer-contact">
         <h2>Let's talk!</h2>
         <p class="footer-intro">Have a project in mind or just want to say hi? Send a message and I'll get back to you.</p>
-        <form class="contact-form" id="contactForm" action="https://formsubmit.co/ajax/ariellacohen614@gmail.com" method="POST">
-          <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off">
-          <input type="hidden" name="_subject" value="New message from portfolio site">
-          <div class="form-row">
-            <label for="cf-name">Name</label>
-            <input type="text" id="cf-name" name="name" required>
-          </div>
-          <div class="form-row">
-            <label for="cf-email">Email</label>
-            <input type="email" id="cf-email" name="email" required>
-          </div>
-          <div class="form-row">
-            <label for="cf-message">Message</label>
-            <textarea id="cf-message" name="message" rows="4" required></textarea>
-          </div>
-          <button type="submit" class="btn">Send message</button>
-          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
-        </form>
+        <button type="button" class="btn" id="contactOpenBtn">Contact me</button>
         <ul class="contact-list">
           <li><a href="https://linkedin.com/in/cohenariella" target="_blank" rel="noopener">linkedin.com/in/cohenariella</a></li>
         </ul>
@@ -456,6 +484,32 @@
     </div>
   </div>
 </footer>
+
+<div class="modal-overlay" id="contactModalOverlay">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
+    <button type="button" class="modal-close" id="contactCloseBtn" aria-label="Close">&times;</button>
+    <h2 id="contactModalTitle">Let's talk!</h2>
+    <p class="footer-intro">Have a project in mind or just want to say hi? Send a message and I'll get back to you.</p>
+    <form class="contact-form" id="contactForm" action="https://formsubmit.co/ajax/ariellacohen614@gmail.com" method="POST">
+      <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off">
+      <input type="hidden" name="_subject" value="New message from portfolio site">
+      <div class="form-row">
+        <label for="cf-name">Name</label>
+        <input type="text" id="cf-name" name="name" required>
+      </div>
+      <div class="form-row">
+        <label for="cf-email">Email</label>
+        <input type="email" id="cf-email" name="email" required>
+      </div>
+      <div class="form-row">
+        <label for="cf-message">Message</label>
+        <textarea id="cf-message" name="message" rows="4" required></textarea>
+      </div>
+      <button type="submit" class="btn">Send message</button>
+      <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</div>
 
 <script>
   var toggle = document.getElementById('navToggle');
@@ -499,6 +553,34 @@
         btn.disabled = false;
         btn.textContent = 'Send message';
       });
+    });
+  }
+
+  var contactOpenBtn = document.getElementById('contactOpenBtn');
+  var contactModalOverlay = document.getElementById('contactModalOverlay');
+  var contactCloseBtn = document.getElementById('contactCloseBtn');
+
+  function openContactModal(){
+    contactModalOverlay.classList.add('open');
+    document.body.classList.add('modal-open');
+    document.addEventListener('keydown', onContactModalKeydown);
+    var firstField = document.getElementById('cf-name');
+    if (firstField) firstField.focus();
+  }
+  function closeContactModal(){
+    contactModalOverlay.classList.remove('open');
+    document.body.classList.remove('modal-open');
+    document.removeEventListener('keydown', onContactModalKeydown);
+    if (contactOpenBtn) contactOpenBtn.focus();
+  }
+  function onContactModalKeydown(e){
+    if (e.key === 'Escape') closeContactModal();
+  }
+  if (contactOpenBtn && contactModalOverlay && contactCloseBtn) {
+    contactOpenBtn.addEventListener('click', openContactModal);
+    contactCloseBtn.addEventListener('click', closeContactModal);
+    contactModalOverlay.addEventListener('click', function(e){
+      if (e.target === contactModalOverlay) closeContactModal();
     });
   }
 </script>
