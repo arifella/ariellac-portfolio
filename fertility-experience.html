@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cycle Tracker — Ari Cohen</title>
-<meta name="description" content="Case study: Cycle Tracker homepage widget for Maven's Fertility pillar.">
+<title>Fertility Experience — Ari Cohen</title>
+<meta name="description" content="Case study: four strategic initiatives across Maven's Fertility experience, including Cycle Tracker, Oura, Fellow, and Color Health.">
 <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
 <link rel="icon" href="favicon.ico?v=2" sizes="any">
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
@@ -426,44 +426,85 @@
   <section class="cs-hero wrap">
     <a class="cs-back" href="index.html#work">← Back to work</a>
     <span class="case-num">02</span>
-    <h1>Cycle Tracker</h1>
+    <h1>Fertility Experience</h1>
     <p class="case-role">Maven Clinic · 2025–2026</p>
     <div class="tags">
       <span class="tag">iOS</span>
       <span class="tag">Android</span>
+      <span class="tag">Web</span>
       <span class="tag">Oura</span>
+      <span class="tag">Fellow</span>
     </div>
-    <div class="cs-img"><span>Image placeholder</span></div>
   </section>
 
   <section class="wrap">
     <div class="cs-section">
-      <h2>Overview</h2>
-      <p>Cycle Tracker is core to how Maven supports fertility members trying to conceive naturally. [X]% of fertility members using Cycle Tracker go on to achieve unassisted conception. <em>(Confirm this stat before publishing. It's shown up as both 30% and 32% in different drafts. Pick one, cite the source, and use it consistently everywhere this feature is discussed.)</em></p>
-      <p>I worked on Cycle Tracker across three initiatives over [timeframe]: a homepage widget to drive discoverability, an Oura integration to bring in wearable-based cycle data, and a set of smaller changes aimed at adoption and engagement.</p>
+      <h2>The problem space</h2>
+      <p>Most people trying to conceive don't lack information, they lack access to it at the right moment. Cycle signals go unnoticed because they're buried instead of surfaced. Diagnostic testing defaults to one partner, leaving a major factor unexamined. Conditions that need a different kind of care get routed through a generic fertility path instead of one built for them.</p>
+      <p>My work on the fertility experience at Maven focused on closing those specific gaps: surfacing cycle data earlier, replacing single point-in-time testing with continuous signal, filling a diagnostic blind spot, and building a path for a condition that doesn't fit the standard model.</p>
     </div>
+
     <div class="cs-section">
-      <h2>1. Homepage widget</h2>
-      <h3>Problem</h3>
-      <p>Cycle Tracker was a feature members had to seek out. Usage among members who could benefit from it was lower than it should have been, because the feature had no presence on the homepage, the first screen most members saw after logging in.</p>
-      <h3>What I did</h3>
-      <p>[1-2 sentences on your actual process: what you tested, what constraints you worked within, why a widget was the right call over other options you considered.]</p>
-      <h3>Result</h3>
-      <p>Shipping the widget increased feature utilization by [X]%. <em>(This needs to be a real number before this ships. Pull it from Mixpanel. A placeholder percentage reads as unfinished, not aspirational.)</em></p>
+      <h2>Initiative 1: Cycle Tracker Homepage Widget</h2>
+      <p>The homepage widget I designed is the top content unit on Maven's Fertility homepage, seen by roughly 30% of all Maven users, and the primary entry point into Cycle Tracker, the feature driving the most engagement and retention among this segment of users.</p>
+
+      <h3>The problem</h3>
+      <p>The business needed a way to convert users who hadn't onboarded to Cycle Tracker yet, and to give onboarded users a reason to open the app and keep logging. That data isn't incidental: the insights, and ultimately the support, that can drive unassisted conception depend on what a user actually logs.</p>
+
+      <h3>What I designed</h3>
+      <p>This was two product problems in one interface: convert users who hadn't onboarded, retain and drive action for those who had. I designed 12 versions across two tracks, Trying to Conceive and Preconception, each solving for a different moment in the user's relationship with the feature. It shipped on iOS and Android at full fidelity in 2026, with a simplified version for web.</p>
+      <p>This widget holds the highest-value real estate on the homepage, the top slot every fertility user sees first, which reflects how central Cycle Tracker was meant to be to a user's day-to-day use of the product.</p>
+      <p>I designed a new card component for Maven's design system, built as a reusable foundation rather than a one-off. I also designed a new way to represent cycle day: a circular indicator that updates dynamically as a user moves through their cycle, instead of a static number or date. Copy stayed short and specific by design, enough to earn a click, not fill space.</p>
+      <p><strong>Not yet onboarded:</strong> made the case for Cycle Tracker's value fast enough to convert someone who hadn't engaged with the feature at all.</p>
+      <p><strong>Already onboarded:</strong> anchored by the circular cycle-day visual, paired with context on what a user might be experiencing at that stage and a phase-specific CTA, so the widget drove action, not just information.</p>
+
+      <h3>Why it works</h3>
+      <p>The widget does three jobs at once: it teaches users what Cycle Tracker actually does and promotes feature adoption, it gives onboarded users a reason to check in regularly, and it routes them to the most relevant action for where they are in their cycle, driving re-engagement.</p>
+      <p>Because it lives at the top of the Fertility homepage, it reaches the largest possible share of fertility users without requiring them to seek the feature out.</p>
+
+      <h3>Impact</h3>
+      <p>The widget took the top position on the Fertility homepage and has held it since launch, continuing to serve as the primary driver of Cycle Tracker engagement and onboarding for the ~30% of Maven users in that program, lifting Cycle Tracker onboarding from 18% to 24% of users.</p>
+
+      <h3>What I'd change</h3>
+      <p><strong>Condition-aware, more sensitive content.</strong> Right now the messaging treats cycle tracking as a physical, mechanical thing. For someone who's been trying to conceive for months without success, that's not the whole experience. There's an emotional weight to it that the current content doesn't account for, and the tone needs to flex for where someone actually is in their journey, not just their cycle day.</p>
+      <p><strong>AI-driven personalization.</strong> The content today is phase-based, not history-based. The next version should use what a user has actually logged: for example, surfacing that they've reported headaches and cramps during this same phase across their last three cycles, instead of only showing generic phase information. That shift, from generic to personalized insight, is where the real value is.</p>
     </div>
+
     <div class="cs-section">
-      <h2>2. Oura integration</h2>
-      <h3>Problem</h3>
-      <p>Cycle Tracker relied on member-reported data for ovulation prediction. Members using wearables had more precise data sitting unused, and Maven had no first-to-market wearable integration in this space.</p>
-      <h3>What I did</h3>
-      <p>I led the design of Maven's integration with Oura, bringing FDA-listed ovulation prediction data directly into Cycle Tracker. <em>[Add a sentence on the actual design problem: how you handled data trust and accuracy framing for members, how you designed the connection flow, what made this different from a generic third-party integration.]</em></p>
-      <h3>Result</h3>
-      <p>This was Maven's first wearable data integration and made ovulation-confirmation data more precise for members who used it. The goal was a 20% increase in ovulation-confirmation tool usage. <em>(State whether you hit this. If you don't have the actual number, get it from Mixpanel or Looker before publishing. "The goal was X" with no result reads like the project didn't finish.)</em></p>
+      <h2>Initiative 2: Oura Cycle Data Integration</h2>
+      <p>Maven kicked off a partnership with Oura in 2025 to bring wearable data into the platform. I picked up that work and took it further as end-to-end designer, building a member-facing and provider-facing integration that pulls Oura's reproductive cycle data directly into Maven's Cycle Tracker. Oura doesn't have a dedicated fertility or symptom tracker. Maven does. This gave users a way to combine Oura's biometric data with the tracking experience they were already using to try to conceive. The integration is fully built and QA'd, awaiting release.</p>
+
+      <h3>The problem</h3>
+      <p>Tracking your cycle, whether in Maven or any other app, mostly means logging dates. Dates tell you when your period started. They don't tell you whether or when you actually ovulated, and ovulation is the thing that actually matters for conceiving. Some people turn to ovulation predictor kits to fill that gap, but those come with their own limitations.</p>
+      <p>Oura already had FDA-approved, clinically verified ovulation data sitting in its platform. That data existed. It just wasn't connected to a fertility care experience where it could actually be useful. Surfacing it to Maven users, and to their Maven care team, meant both sides could see a more complete picture of what was happening in a given cycle, and that's the first real step toward identifying what might be making it hard to conceive.</p>
+
+      <h3>What I designed</h3>
+      <p>This was a partnership project, which meant designing inside someone else's constraints as much as my own. I worked directly with Oura's Product, Design, Legal, and Compliance teams, alongside my Product and Engineering colleagues, to figure out how their data could live inside Maven's product without compromising either company's standards.</p>
+      <p><strong>Ovulation status, made unambiguous.</strong> The core challenge was making sure Fertile Window, Predicted Ovulation, and Confirmed Ovulation were crystal clear: what each one meant, how it showed up as icons in the calendar view, and how it was explained in plain language in the bottom sheet, all while clearly tying the data back to Oura as the source. I designed this new visual and content language to sit naturally inside Maven's existing design system, without a full redesign of Cycle Tracker or the calendar. Since this introduced concepts users hadn't seen before, I ran comprehension testing directly rather than assuming it would land, and all 20 users tested correctly interpreted what the visuals were meant to convey.</p>
+      <p><strong>Settings.</strong> Adding the integration meant new controls users needed to manage, so I took apart the existing Cycle Tracker settings page and rebuilt it to accommodate them cleanly.</p>
+      <p><strong>Provider view in MPractice.</strong> Users weren't the only audience. I designed the equivalent data visualization inside MPractice, Maven's proprietary EMR, where providers already view cycle data. Providers now see the same Oura-sourced cycle data their patient sees, giving care teams the same complete picture during appointments and clinical decision-making.</p>
+      <p><strong>Getting people to connect.</strong> None of this mattered if users didn't know it existed. I designed the promotional action sheets and modals that introduced the integration to members who hadn't yet connected their Oura account, making the case for why they'd want to.</p>
+
+      <h3>Accuracy and sign-off</h3>
+      <p>Cycle Tracker already pulls from multiple sources: user-logged symptoms, Apple Health, and now Oura. I partnered closely with backend engineering to define how conflicting data between sources would be resolved, and how that resolution would be visualized so users wouldn't see contradictory information with no explanation.</p>
+      <p>Every part of the design had to meet the bar Oura needed to feel comfortable putting their name on the release, so I presented the work to their team for multiple rounds of feedback and approval.</p>
+
+      <h3>Status</h3>
+      <p>The integration is fully built and QA'd, awaiting release, so outcome data isn't available yet. The targets going in: a 20% increase in ovulation-confirmation tool usage, and a contribution toward Maven's broader 32% unassisted conception rate among fertility users.</p>
     </div>
+
     <div class="cs-section" style="border-bottom:none;">
-      <h2>3. Adoption and engagement improvements</h2>
-      <div class="cs-img"><span>Image placeholder</span></div>
-      <p class="cs-caption">Content pending — add problem, approach, and result once finalized.</p>
+      <h2>Initiative 3: Semen Analysis Partnership (Fellow)</h2>
+      <p>Maven partnered with Fellow, which provides at-home semen analysis kits, to address a testing gap in male fertility. I designed the Fertility experience that introduced the offering and moved men through the testing process. It shipped to production across all platforms in late 2025.</p>
+
+      <h3>The problem</h3>
+      <p>Nearly 50% of infertility cases involve a male factor, but stigma keeps testing rates low. Men often avoid it out of embarrassment, which delays diagnosis and can shift the burden of testing and treatment onto the female partner by default. Fellow's at-home kit removed the clinical friction. What Maven still needed was a path that made men aware of it, comfortable enough to act, and gave female partners a way to introduce it to their partner without friction.</p>
+
+      <h3>What I designed</h3>
+      <p>I built two paths into the same offering, since the person discovering it and the person completing it aren't always the same user.</p>
+      <p><strong>For male users:</strong> a flow to learn about the Fellow offering and move straight into ordering the kit, designed to lower the barrier of a topic men are often reluctant to engage with at all.</p>
+      <p><strong>For female fertility users:</strong> a parallel flow to learn about the offering and share it with a male partner, so testing could be introduced by someone already inside the Maven experience instead of requiring the partner to seek it out cold.</p>
+      <p>The centerpiece of the work was a new homepage content unit I created called the Featured Action Card. It sits at the top of the fertility homepage, the same high-value real estate reserved for the most important actions we needed users to take. Given how much resistance exists around this specific topic, the card had to do more than inform, it had to capture attention and create enough urgency to move someone from awareness to action.</p>
     </div>
 
     <div class="cs-projnav">
