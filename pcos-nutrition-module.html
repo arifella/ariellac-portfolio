@@ -201,16 +201,22 @@
   .footer-grid{
     display:flex;
     justify-content:space-between;
-    align-items:flex-end;
+    align-items:center;
     flex-wrap:wrap;
     gap:32px;
+  }
+  .footer-contact{
+    display:flex;
+    align-items:center;
+    flex-wrap:nowrap;
+    gap:20px;
   }
   footer h2{
     font-family:'DM Sans', sans-serif;
     font-weight:500;
     font-size:30px;
-    margin:0 0 18px;
-    max-width:14ch;
+    margin:0;
+    white-space:nowrap;
   }
   .footer-link{
     color:inherit;
@@ -259,6 +265,11 @@
     color:var(--ink-soft);
     margin:0 0 24px;
     max-width:38ch;
+  }
+  .footer-contact .footer-intro{
+    margin:0;
+    max-width:none;
+    white-space:nowrap;
   }
   .contact-form{
     display:flex;
@@ -396,6 +407,8 @@
       cursor:pointer;
     }
     .footer-grid{flex-direction:column; align-items:flex-start;}
+    .footer-contact{flex-wrap:wrap;}
+    .footer-contact .footer-intro{white-space:normal; max-width:38ch;}
   }
 </style>
 </head>
