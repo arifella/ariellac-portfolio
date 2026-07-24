@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PCOS Nutrition Module — Ari Cohen</title>
-<meta name="description" content="Case study: PCOS Nutrition Module.">
+<title>Conditions-based experiences — Ari Cohen</title>
+<meta name="description" content="Case study: Conditions-based experiences.">
 <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
 <link rel="icon" href="favicon.ico?v=2" sizes="any">
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
@@ -174,6 +174,9 @@
     line-height:1.7;
     color:var(--ink-soft);
     margin:0 0 16px;
+  }
+  .cs-section .cs-img{
+    margin:32px 0;
   }
 
   /* PROJECT NAV */
@@ -432,7 +435,7 @@
   <section class="cs-hero wrap">
     <a class="cs-back" href="index.html#work">← Back to work</a>
     <span class="case-num">03</span>
-    <h1>PCOS Nutrition Module</h1>
+    <h1>Conditions-based experiences</h1>
     <p class="case-role">Maven Clinic · 2026</p>
     <div class="tags">
       <span class="tag">iOS</span>
@@ -446,19 +449,28 @@
   <section class="wrap">
     <div class="cs-section">
       <h2>Overview</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p>Conditions-based experiences: designing Maven's first condition-specific homepage pathway, starting with PCOS. Maven Clinic, Spring 2026, shipped to production on mobile and web. I was lead designer, partnering closely with Product and Engineering. Rolled out to 10% of Fertility members (100% of members with this diagnosis).</p>
     </div>
     <div class="cs-section">
       <h2>Problem</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p>Maven's Fertility experience was largely generic. A member with PCOS and a member with no diagnosis or suspected condition saw the same homepage, even though PCOS has a well-established, treatment-free management lever: nutrition.</p>
+      <p>For PCOS specifically, dietary changes are one of the most effective non-treatment ways to manage the condition, but Maven wasn't doing anything to help members act on that, or to signal that Maven understood their condition was different from a general fertility case. This mattered beyond one feature. Maven's broader fertility strategy is moving toward condition-based care pathways instead of one-size-fits-all guidance. [Read more about Maven's <a href="https://www.mavenclinic.com/post/the-next-chapter-in-fertility-care-starts-before-treatment" target="_blank" rel="noopener">strategy</a> driving this project.]</p>
     </div>
     <div class="cs-section">
       <h2>Process</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p>I designed a homepage module that rotated content over a weekly cycle each time a member logged in. Rotations mixed formats deliberately: some days surfaced an assessment question through a bottom sheet, others prompted a loggable behavior (like a short walk after a meal), and others delivered supportive or educational content. The goal was to make daily engagement feel varied, while quietly capturing data on what members were doing and how they felt about managing their condition.</p>
+      <div class="cs-img"><span>Image placeholder</span></div>
+      <p>Alongside the module, I designed a story-card carousel, an Instagram Stories-style format, with 7 illustrated card sets going deep on individual nutrition topics (protein was one). This was meant to be a more interactive, higher-retention alternative to a static article for members who wanted to go beyond the daily module.</p>
+      <p>The hardest part was the assessment bottom sheets. They needed to plug into Maven's existing assessment infrastructure, which was tightly coupled to legacy backend architecture never built for this use case. I worked closely with engineering to unwind that constraint and find the simplest path to ship without rebuilding the system underneath it. That tradeoff shaped scope: for this version, questions were limited to checkbox/multiselect and radio/single-select formats, and result screens stayed simple. I scoped and proposed a future version of the assessment UI that supports more question types and more visually developed result pages.</p>
+      <div class="cs-img"><span>Image placeholder</span></div>
+      <p>I also designed a new interaction pattern for activity logging: a “mark as done” button with a distinct completed state, which is now a reusable pattern in Maven's design system.</p>
+      <p>Two things made this bigger than a single feature. First, the module itself was built as a template, not a one-off. The structure is designed to be repurposed for other condition pathways, starting with Endometriosis. Second, it changed what the top of the Fertility homepage does: instead of static content, members now see something dynamic, personalized to their condition, and interactive, which supports Maven's broader positioning shift toward condition-specific care.</p>
+      <div class="cs-img"><span>Product image placeholder</span></div>
     </div>
     <div class="cs-section" style="border-bottom:none;">
       <h2>Outcome</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p>This shipped in May 2026, so there's no usage data yet. What it's designed to move: daily engagement with the Fertility homepage for PCOS members, self-reported symptom and behavior data Maven didn't previously have.</p>
+      <p>On the design side, the concrete outcomes are already real: a new templatized content block now available to other condition pathways, a new button interaction pattern adopted into the design system, and a scoped path forward for a more flexible assessment UI.</p>
     </div>
 
     <div class="cs-projnav">
