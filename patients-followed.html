@@ -185,7 +185,7 @@
     color:var(--ink-soft);
     margin-bottom:10px;
   }
-  .cs-section .cs-img{margin-top:8px;}
+  .cs-section .cs-img{margin:32px 0;}
 
   /* PROJECT NAV */
   .cs-projnav{
@@ -454,37 +454,43 @@
 
   <section class="wrap">
     <div class="cs-section">
+      <h2>Context</h2>
+      <p>Signify Health managed 90-day episodes of care for health systems and hospitals, taking on financial risk for the total cost of each patient's episode. Length of stay and readmissions weren't just clinical metrics - they were the difference between an episode coming in under budget or over it.</p>
+      <p>The operations team responsible for tracking this in real time wasn't using Signify's own product to do it. They were using their own handmade Excel workflow.</p>
+    </div>
+    <div class="cs-section">
       <h2>The problem</h2>
-      <p>Signify Health manages 90-day episodes of care for health systems and hospitals. The internal team responsible for tracking bundle patients (and their data on length of stay, readmissions, facility notes) wasn't doing any of it in Signify's product, “Episode Connect.” They were doing it in an Excel spreadsheet.</p>
-      <p>Leadership had developed a "Standard SNF Census" template for that entire team to use, but almost no two users' sheets looked the same. People had forked it, added columns, and built their own tracking logic. The spreadsheet had become the real product; Episode Connect was where they copied data into afterward.</p>
+      <p>Episode Connect, Signify's B2B product, was supposed to be the system of record for all parties involved managing and tracking patients. In practice, users tracked their patients in an Excel spreadsheet and copied the data in after the fact, if they got to it at all.</p>
+      <p>Leadership had built a standard template for the team to use as part of that workflow, but it didn't hold. By the time my team got involved, almost no two people's sheets looked the same. People had forked it, added their own columns, built their own logic for flagging patients they were worried about. Some were sharing these personal versions with managers because they'd become more useful than the actual product. The spreadsheet was the real tool and source of truth. My job was to figure out what the spreadsheet was actually doing for them, and bring that back into the product we owned.</p>
     </div>
     <div class="cs-section">
       <h2>Research</h2>
-      <p>I ran 9 discovery sessions with users from the target group, then fielded a survey to the full population of 50 to get more structured data on how people were actually using the census sheet: workflow, documentation habits, format preferences, pain points.</p>
-      <p>What came back was that users were spending many hours a week managing this spreadsheet, and even sharing their custom sheets with their managers and colleagues.</p>
-      <p>I asked users to rank what information mattered most, and got a clear, consistent order: length of stay, episodic length of stay, current facility, notes from facility discussions, anticipated discharge, bundle/DRG, anchor facility, anchor discharge date. That ranking became the spec for what the new feature needed to surface first, and in what order.</p>
+      <p>I ran discovery sessions with a chunk of the 50-person team, then surveyed everyone to get harder data on how people were actually working, what they tracked, how they formatted it, where it broke down.</p>
+      <p>One thing came back clearly. When I asked people to rank what mattered most, almost everyone landed on the same order: current length of stay, current facility, notes from facility conversations, anticipated discharge, and a few other fields further down the list. That ranking became the spec and helped drive the feature prioritization order.</p>
     </div>
     <div class="cs-section">
       <h2>Design</h2>
-      <p>The direction was to bring this workflow natively into Episode Connect rather than have users maintain a shadow spreadsheet. I used AG Grid as a reference for the table mechanics, sorting, filtering, column configuration, since it matched the flexibility users had built for themselves informally.</p>
+      <p>I designed early iterations, then brought them back to the same users I'd interviewed for feedback, more than once, as the design evolved. That's how the entry point changed. My first version had people follow a patient only from their profile. Users wanted it available from wherever they were already working, so I moved it there.</p>
+      <p>I looked at flexible data-grid tools as a reference point for the table itself, since that kind of sorting and filtering was close to what people had already built for themselves informally and we didn't necessarily have to do it all from scratch.</p>
       <div class="cs-img"><span>Image placeholder</span></div>
-      <p>The MVP scope:</p>
+      <p>The final design included:</p>
       <ul>
-        <li>A "Patients Followed" table, a new tab in the left nav, showing only the patients a user chose to track</li>
-        <li>A follow/unfollow action available from other views in the product, so people could add patients as they worked instead of doing it as a separate step</li>
-        <li>Row-level fields matched to the research-ranked priorities: bundle, current location, readmission status, ELOS, and a one-click link to that patient's most recent note</li>
-        <li>Click-through from any row to the full patient profile</li>
+        <li>A new dedicated "Patients Followed" view, so people only saw the patients they were personally tracking, not the full list of all patients in the system</li>
+        <li>A way to follow a patient from wherever they encountered them in the product, instead of a separate step</li>
+        <li>The filtering fields that came out as highest priority from the research, plus a one-click link to a patient's latest note without having to dig all the way into their history</li>
+        <li>A path from any row into the full patient profile, so this stayed a fast check-in, not a copy of the profile</li>
       </ul>
-      <p>The scope decision that mattered most wasn't what to include, it was what to leave out. Users' spreadsheets had years of accumulated one-off logic. Replicating all of it would have shipped nothing. I held the MVP to the ranked list from research and treated everything else as backlog.</p>
+      <p>The design challenge I faced was deciding what didn't need to be part of the feature itself. Users had years of personal logic built into their sheets that didn't necessarily warrant being built into a product. I held the line at what research told me actually mattered for the majority of users, which meant telling a few people their specific workaround wasn't making it into the build.</p>
     </div>
     <div class="cs-section" style="border-bottom:none;">
       <h2>Outcome</h2>
-      <p>Post-launch, the Standard SNF Census sheet was fully sunset - users moved their tracking into Episode Connect and stayed there. In follow-up research, users reported the feature helped them:</p>
+      <p>The spreadsheet was fully sunset. Internal operations teams moved their workflow following patients into Episode Connect and stayed there.</p>
+      <p>In follow-up conversations, users reported that the Patients Followed feature helped them better be able to:</p>
       <ul>
-        <li>Track patients per facility ahead of facility meetings</li>
+        <li>Track patients by facility ahead of facility meetings</li>
         <li>See at a glance where a patient currently was, especially after a readmission</li>
-        <li>Get to a patient's latest note in one click instead of navigating to the full profile</li>
-        <li>Clean up their followed list as patients were discharged or transferred out of their responsibility</li>
+        <li>Get to a patient's latest note in one click instead of digging through their profile</li>
+        <li>Clean up their list as patients were discharged or moved off their caseload</li>
       </ul>
     </div>
 
