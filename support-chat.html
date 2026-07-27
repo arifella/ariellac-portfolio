@@ -162,44 +162,6 @@
     max-height:640px;
     object-fit:contain;
   }
-  .cs-img img[data-full]{
-    cursor:zoom-in;
-  }
-
-  /* LIGHTBOX */
-  .lightbox{
-    display:none;
-    position:fixed;
-    inset:0;
-    z-index:100;
-    background:rgba(10,10,10,0.92);
-    align-items:center;
-    justify-content:center;
-    padding:40px;
-  }
-  .lightbox.is-open{display:flex;}
-  .lightbox-img{
-    max-width:100%;
-    max-height:100%;
-    object-fit:contain;
-    box-shadow:0 20px 60px rgba(0,0,0,0.5);
-  }
-  .lightbox-close{
-    position:fixed;
-    top:20px;
-    right:24px;
-    width:40px;
-    height:40px;
-    border-radius:50%;
-    border:1px solid rgba(255,255,255,0.3);
-    background:rgba(255,255,255,0.06);
-    color:#fff;
-    font-size:20px;
-    line-height:1;
-    cursor:pointer;
-  }
-  .lightbox-close:hover{background:rgba(255,255,255,0.16);}
-
   /* CASE SECTIONS */
   .cs-section{
     padding:56px 0;
@@ -523,7 +485,6 @@
       <p>This was the case for topics of all kinds, ranging from complex medical and financial questions, to basic needs like appointment booking and provider recommendations.</p>
       <p>Behind the scenes, a ticket was formed in Zendesk. The 24/7 Support team triaged it, tagged it, escalated it or self-assigned it, and drafted a reply using macros. Eventually the answer reached the user through the same original Care Advocate message thread, but from someone else entirely, and anywhere from within the hour up to three business days later.</p>
       <p>At the same time, users were expressing the desire to be able to get information for themself more; not everything warranted a back and forth chat with a Care Advocate, they just had a quick question.</p>
-      <div class="cs-img"><span>Image placeholder</span></div>
       <p>The volume made the math unforgiving. Support fielded at least 300,000 tickets a year, and rising.</p>
       <p>There was no self-serve path. No deflection. Every interaction depended on a human being available to pick it up. That drove up cost to serve and slowed response times across the board, even for the easy cases.</p>
       <p>Maven had no existing model for how AI should handle a conversation this trust-sensitive, at this scale. But it was clear this was the highest-impact opportunity to leverage new technology.</p>
@@ -532,7 +493,7 @@
       <h2>Process</h2>
       <p>I led a cross-functional working group (Support, Engineering, Product, Clinical), where I tested early concepts against real scenarios before committing to a direction.</p>
       <p>From there I presented a 3-year north star vision to leadership. I then brought that vision back to what was buildable with our current design system, mapping which questions AI could resolve end-to-end versus which needed to route straight to a human based on topic.</p>
-      <div class="cs-img"><span>Image placeholder</span></div>
+      <div class="cs-img" style="aspect-ratio:2200/1517; margin:32px 0;"><img src="support-chat-process.png" data-full="support-chat-process-full.png" alt="Scenario walkthrough of Camilla, a Maven member with a newborn, using Support Chat: dashboard notification, message inbox, live chat modal, AI scanning her message and sending a relevant resource, and the live chat conversation"></div>
       <p>In parallel, engineering was evaluating the build approach (3rd party vs custom internal build). I designed critical pieces of the flow to visualize the tradeoffs across the different options under consideration, work that fed directly into the vendor decision.</p>
     </div>
     <div class="cs-section">
@@ -541,13 +502,11 @@
       <h3>Mental model &amp; discoverability</h3>
       <p>The app was already full of entry points telling users to message their Care Advocate. Each one routed people past the new self-serve path and back into the ticket queue. Established users were already so used to following the existing path to get any question answered.</p>
       <p>I had to unravel how we would surface Support Chat in the app, infuse lightweight, evergreen product education, and convert them to use it—even while the original Care Advocate thread was technically still accessible.</p>
-      <div class="cs-img"><span>Image placeholder</span></div>
       <p>The harder part was positioning this within a brand that prides itself on the human touch: promoting the new AI-first support in a way that didn't read as a downgrade from the human care members expected.</p>
       <h3>Inbox mechanics</h3>
       <p>The Care Advocate thread that users historically asked support questions in had always been a single conversation thread, alongside 1:1 messages with providers, with an inbox that functioned like text message inboxes. Adding an AI support chat into that same paradigm made things much messier.</p>
       <p>Through a process of iteration, user testing and collecting feedback, I was able to land an MVP design that matched both user expectations and business priorities.</p>
       <p>The hardest parts were making AI-to-human handoff legible within a single thread, and defining what 'resolved' even means when AI, not a person, is the one closing the conversation.</p>
-      <div class="cs-img"><span>Image placeholder</span></div>
       <p>Working across my two primary flows (“I have a question AI can solve” and “I have a question that needs human attention”) I built out prototypes that helped me fine tune the end-to-end experience within the overall messaging framework.</p>
     </div>
     <div class="cs-section">
@@ -575,8 +534,6 @@
       <h2>Post-MVP</h2>
       <p>Scaling Support Chat meant that I continued to design more niche handoff flows, handling specific questions like fertility treatment costs without losing conversation context, and refining discoverability through contextual entry points across the app. UI and visual fine-tuning continued alongside all of it.</p>
       <p>As the effort evolved into its next phase under the new broader “Maven Intelligence”, with Support Chat rebranded as Assistant, I moved on to a new team but continued to be involved as the PD subject matter expert, supporting the designers who took over that space.</p>
-      <div class="cs-img"><span>Image placeholder</span></div>
-      <p class="cs-caption">Entry-point screens, AI-handled vs. handoff-to-human flow comparison, inbox states</p>
     </div>
     <div class="cs-section" style="border-bottom:none;">
       <h2>Outcome</h2>
@@ -653,48 +610,6 @@
     });
   });
 
-  var lightbox = document.getElementById('lightbox');
-  var lightboxImg = document.getElementById('lightboxImg');
-  var lightboxClose = document.getElementById('lightboxClose');
-  var lastFocused = null;
-
-  function openLightbox(trigger){
-    lastFocused = trigger;
-    lightboxImg.src = trigger.getAttribute('data-full') || trigger.src;
-    lightboxImg.alt = trigger.alt;
-    lightbox.classList.add('is-open');
-    document.body.style.overflow = 'hidden';
-    lightboxClose.focus();
-  }
-
-  function closeLightbox(){
-    lightbox.classList.remove('is-open');
-    document.body.style.overflow = '';
-    lightboxImg.src = '';
-    if (lastFocused) lastFocused.focus();
-  }
-
-  document.querySelectorAll('.cs-img img[data-full]').forEach(function(img){
-    img.setAttribute('tabindex', '0');
-    img.setAttribute('role', 'button');
-    img.setAttribute('aria-label', 'Expand image');
-    img.addEventListener('click', function(){ openLightbox(img); });
-    img.addEventListener('keydown', function(e){
-      if (e.key === 'Enter' || e.key === ' '){
-        e.preventDefault();
-        openLightbox(img);
-      }
-    });
-  });
-
-  lightboxClose.addEventListener('click', closeLightbox);
-  lightbox.addEventListener('click', function(e){
-    if (e.target === lightbox) closeLightbox();
-  });
-  document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape' && lightbox.classList.contains('is-open')) closeLightbox();
-  });
-
   var contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', function(e){
@@ -757,6 +672,7 @@
     });
   }
 </script>
+<script src="lightbox.js"></script>
 
 </body>
 </html>

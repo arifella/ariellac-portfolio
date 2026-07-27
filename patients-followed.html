@@ -456,7 +456,6 @@
       <div class="cs-stat"><span class="cs-stat-label">Team size</span><span class="cs-stat-value">50-person ops team</span></div>
       <div class="cs-stat"><span class="cs-stat-label">Key metric</span><span class="cs-stat-value">X</span></div>
     </div>
-    <div class="cs-img"><span>Image placeholder</span></div>
   </section>
 
   <section class="wrap">
@@ -488,7 +487,6 @@
       <h2>Design</h2>
       <p>I designed early iterations, then brought them back to the same users I'd interviewed for feedback, more than once, as the design evolved. That's how the entry point changed. My first version had people follow a patient only from their profile. Users wanted it available from wherever they were already working, so I moved it there.</p>
       <p>I looked at flexible data-grid tools as a reference point for the table itself, since that kind of sorting and filtering was close to what people had already built for themselves informally and we didn't necessarily have to do it all from scratch.</p>
-      <div class="cs-img"><span>Image placeholder</span></div>
       <p>The final design included:</p>
       <ul>
         <li>A new dedicated "Patients Followed" view, so people only saw the patients they were personally tracking, not the full list of all patients in the system</li>
@@ -517,6 +515,11 @@
   </section>
 
 </main>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Expanded image">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+</div>
 
 <footer id="contact">
   <div class="wrap">
@@ -637,6 +640,7 @@
     });
   }
 </script>
+<script src="lightbox.js"></script>
 
 </body>
 </html>
