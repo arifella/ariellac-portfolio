@@ -506,13 +506,17 @@
       <p>Most of the interface leaned on Maven's existing design system, extended where needed for new cases like sender distinction and AI-to-human handoff.</p>
       <p>Getting there wasn't a single pass. Entry points alone went through several rounds of exploration, from subtle inline prompts to more prominent standalone entry cards, before landing on something that converted without feeling forced on users who didn't need it.</p>
       <p>The inbox itself took even more iteration, since every version had to be tested against how it would actually feel once human messages and numerous new threads with Support Chat were sitting in the same inbox.</p>
-      <div class="cs-img" style="aspect-ratio:2200/1199; margin:32px 0;"><img src="support-chat-inbox.png" data-full="support-chat-inbox-full.png" alt="Five inbox states: the Messages list with Ask Maven entry point, the Ask Maven message list, filterable All/Providers/Maven messages view, the Featured Ask Maven card in the inbox, and the Maven Support conversation list"></div>
+    </div>
+    <div class="cs-img" style="aspect-ratio:2200/1199; margin:32px 0; border:none; background:none;"><img src="support-chat-inbox.png" data-full="support-chat-inbox-full.png" alt="Five inbox states: the Messages list with Ask Maven entry point, the Ask Maven message list, filterable All/Providers/Maven messages view, the Featured Ask Maven card in the inbox, and the Maven Support conversation list"></div>
+    <div class="cs-section">
       <p>Landing the right tone mattered as much as the visual work, so I consulted Brand and Copy to sanity-check voice and visual direction along the way. The feature was built simultaneously across mobile and web, so I designed both in parallel from the start.</p>
     </div>
     <div class="cs-section">
       <h2>Development</h2>
       <p>I brought engineering into the design process early and often. That wasn't just walking them through visual plans, it went both ways: understanding how chat storage, keyword detection, and the AI model itself actually worked shaped decisions I made on the design side, and their callouts on feasibility shaped what I was willing to negotiate on and what I held firm on.</p>
-      <div class="cs-img" style="aspect-ratio:2200/1504; margin:32px 0;"><img src="support-chat-development.png" data-full="support-chat-development-full.png" alt="MVP for Chatbot: full Figma documentation board covering the Ask Maven message inbox, start-of-chatbot states, Flow 1 (a question the bot can handle), Flow 2 (a question the bot can't handle), CSAT and closing conversations, timestamps, attachments in conversation history, the referral list form, and various loading and error states"></div>
+    </div>
+    <div class="cs-img" style="aspect-ratio:2200/1504; margin:32px 0; border:none; background:none;"><img src="support-chat-development.png" data-full="support-chat-development-full.png" alt="MVP for Chatbot: full Figma documentation board covering the Ask Maven message inbox, start-of-chatbot states, Flow 1 (a question the bot can handle), Flow 2 (a question the bot can't handle), CSAT and closing conversations, timestamps, attachments in conversation history, the referral list form, and various loading and error states"></div>
+    <div class="cs-section">
       <p>I stayed close to quality after handoff too. I tested the tool myself with my Product Manager, asking it real questions and evaluating whether the answers were actually correct, not just whether the UI rendered right.</p>
       <p>I maintained an organized, annotated Figma file throughout as the project's source of truth, which engineering used directly as the build blueprint. Before release, I planned and led a 20-person Tigers, Paper Tigers, and Elephants pre-mortem to surface risks the team hadn't said out loud yet.</p>
     </div>
