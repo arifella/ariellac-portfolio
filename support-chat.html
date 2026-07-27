@@ -162,6 +162,43 @@
     max-height:640px;
     object-fit:contain;
   }
+  .cs-img img[data-full]{
+    cursor:zoom-in;
+  }
+
+  /* LIGHTBOX */
+  .lightbox{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:100;
+    background:rgba(10,10,10,0.92);
+    align-items:center;
+    justify-content:center;
+    padding:40px;
+  }
+  .lightbox.is-open{display:flex;}
+  .lightbox-img{
+    max-width:100%;
+    max-height:100%;
+    object-fit:contain;
+    box-shadow:0 20px 60px rgba(0,0,0,0.5);
+  }
+  .lightbox-close{
+    position:fixed;
+    top:20px;
+    right:24px;
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,0.3);
+    background:rgba(255,255,255,0.06);
+    color:#fff;
+    font-size:20px;
+    line-height:1;
+    cursor:pointer;
+  }
+  .lightbox-close:hover{background:rgba(255,255,255,0.16);}
 
   /* CASE SECTIONS */
   .cs-section{
@@ -465,7 +502,7 @@
       <span class="tag">Web</span>
       <span class="tag">AI</span>
     </div>
-    <div class="cs-img" style="aspect-ratio:4641/3276; max-height:none;"><img src="support-chat-hero.png" alt="Three phone mockups of the Maven Support chat: the support home screen, provider recommendation topic options, and the Maven Care Team handoff with a helpful article" style="max-height:none;"></div>
+    <div class="cs-img" style="aspect-ratio:4641/3276; max-height:none;"><img src="support-chat-hero.png" data-full="support-chat-hero-full.png" alt="Three phone mockups of the Maven Support chat: the support home screen, provider recommendation topic options, and the Maven Care Team handoff with a helpful article" style="max-height:none;"></div>
   </section>
 
   <section class="wrap">
@@ -546,6 +583,11 @@
 
 </main>
 
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Expanded image">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+</div>
+
 <footer id="contact">
   <div class="wrap">
     <div class="footer-grid">
@@ -601,6 +643,48 @@
       links.classList.remove('open');
       toggle.setAttribute('aria-expanded', 'false');
     });
+  });
+
+  var lightbox = document.getElementById('lightbox');
+  var lightboxImg = document.getElementById('lightboxImg');
+  var lightboxClose = document.getElementById('lightboxClose');
+  var lastFocused = null;
+
+  function openLightbox(trigger){
+    lastFocused = trigger;
+    lightboxImg.src = trigger.getAttribute('data-full') || trigger.src;
+    lightboxImg.alt = trigger.alt;
+    lightbox.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    lightboxClose.focus();
+  }
+
+  function closeLightbox(){
+    lightbox.classList.remove('is-open');
+    document.body.style.overflow = '';
+    lightboxImg.src = '';
+    if (lastFocused) lastFocused.focus();
+  }
+
+  document.querySelectorAll('.cs-img img[data-full]').forEach(function(img){
+    img.setAttribute('tabindex', '0');
+    img.setAttribute('role', 'button');
+    img.setAttribute('aria-label', 'Expand image');
+    img.addEventListener('click', function(){ openLightbox(img); });
+    img.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' '){
+        e.preventDefault();
+        openLightbox(img);
+      }
+    });
+  });
+
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', function(e){
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && lightbox.classList.contains('is-open')) closeLightbox();
   });
 
   var contactForm = document.getElementById('contactForm');
