@@ -17,6 +17,10 @@
   margin:36px 0 12px;
 }
 .cs-section h3:first-of-type{margin-top:0;}
+.cs-section p .semibold{
+  font-weight:600;
+  color:var(--ink);
+}
 
 .cs-stats{
   display:flex;

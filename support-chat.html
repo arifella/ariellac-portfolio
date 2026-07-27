@@ -10,7 +10,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#111111;
@@ -458,7 +458,7 @@
     <a class="cs-back" href="index.html#work">← Back to work</a>
     <span class="case-num">01</span>
     <h1>Support Chat</h1>
-    <p class="case-role">Maven Clinic · 2024–2025</p>
+    <p class="case-role">Maven Clinic</p>
     <div class="tags">
       <span class="tag">AI</span>
       <span class="tag">0→1</span>
@@ -484,13 +484,13 @@
       <p>Every support question, regardless of complexity, followed the same path: a user messaged their Care Advocate and waited. Simple questions like appointment booking or provider recommendations went through the same process as complex medical or financial ones.</p>
       <p>Behind the scenes, each message became a Zendesk ticket. The 24/7 support team triaged, tagged, escalated or self-assigned it, and replied using macros, often from someone other than the original Care Advocate. Response time ranged from under an hour to three business days.</p>
       <p>There was no self-serve option and no deflection. Every interaction depended on a human being available to pick it up, at a volume of 300,000+ tickets a year and rising. That drove up cost to serve and slowed response times even for the easy cases, while users increasingly wanted quick answers without a back-and-forth chat.</p>
-      <p>Maven had no existing model for how AI should handle conversations this trust-sensitive at this scale, but it was clearly the highest-impact opportunity to apply the technology.</p>
+      <p><span class="semibold">Maven had no existing model for how AI should handle conversations this trust-sensitive at this scale, but it was clearly the highest-impact opportunity to apply the technology.</span></p>
     </div>
     <div class="cs-section">
       <h2>Process</h2>
       <p>I led a cross-functional working group (Support, Engineering, Product, Clinical), where I tested early concepts against real scenarios before committing to a direction.</p>
       <p>From there I presented a 3-year north star vision to leadership. I then brought that vision back to what was buildable with our current design system, mapping which questions AI could resolve end-to-end versus which needed to route straight to a human based on topic.</p>
-      <div class="cs-img" style="aspect-ratio:2200/1517; margin:32px 0;"><img src="support-chat-process.png" data-full="support-chat-process-full.png" alt="Scenario walkthrough of Camilla, a Maven member with a newborn, using Support Chat: dashboard notification, message inbox, live chat modal, AI scanning her message and sending a relevant resource, and the live chat conversation"></div>
+      <div class="cs-img" style="aspect-ratio:2200/1517; margin:32px 0;"><img src="support-chat-process.png" data-full="support-chat-process-full.png" alt="Scenario walkthrough of Camilla, a Maven user with a newborn, using Support Chat: dashboard notification, message inbox, live chat modal, AI scanning her message and sending a relevant resource, and the live chat conversation"></div>
       <p>In parallel, engineering was evaluating the build approach (3rd party vs custom internal build). I designed critical pieces of the flow to visualize the tradeoffs across the different options under consideration, work that fed directly into the vendor decision.</p>
     </div>
     <div class="cs-section">
@@ -506,6 +506,7 @@
       <p>Most of the interface leaned on Maven's existing design system, extended where needed for new cases like sender distinction and AI-to-human handoff.</p>
       <p>Getting there wasn't a single pass. Entry points alone went through several rounds of exploration, from subtle inline prompts to more prominent standalone entry cards, before landing on something that converted without feeling forced on users who didn't need it.</p>
       <p>The inbox itself took even more iteration, since every version had to be tested against how it would actually feel once human messages and numerous new threads with Support Chat were sitting in the same inbox.</p>
+      <div class="cs-img" style="aspect-ratio:2200/1199; margin:32px 0;"><img src="support-chat-inbox.png" data-full="support-chat-inbox-full.png" alt="Five inbox states: the Messages list with Ask Maven entry point, the Ask Maven message list, filterable All/Providers/Maven messages view, the Featured Ask Maven card in the inbox, and the Maven Support conversation list"></div>
       <p>Landing the right tone mattered as much as the visual work, so I consulted Brand and Copy to sanity-check voice and visual direction along the way. The feature was built simultaneously across mobile and web, so I designed both in parallel from the start.</p>
     </div>
     <div class="cs-section">
@@ -513,14 +514,12 @@
       <p>I brought engineering into the design process early and often. That wasn't just walking them through visual plans, it went both ways: understanding how chat storage, keyword detection, and the AI model itself actually worked shaped decisions I made on the design side, and their callouts on feasibility shaped what I was willing to negotiate on and what I held firm on.</p>
       <div class="cs-img" style="aspect-ratio:2200/1504; margin:32px 0;"><img src="support-chat-development.png" data-full="support-chat-development-full.png" alt="MVP for Chatbot: full Figma documentation board covering the Ask Maven message inbox, start-of-chatbot states, Flow 1 (a question the bot can handle), Flow 2 (a question the bot can't handle), CSAT and closing conversations, timestamps, attachments in conversation history, the referral list form, and various loading and error states"></div>
       <p>I stayed close to quality after handoff too. I tested the tool myself with my Product Manager, asking it real questions and evaluating whether the answers were actually correct, not just whether the UI rendered right.</p>
-      <p>We also stood up a Slack channel for internal dogfooding, where Mavens could try the feature on their own accounts and flag both bugs and any answer that didn't match what they'd expect from the AI.</p>
       <p>I maintained an organized, annotated Figma file throughout as the project's source of truth, which engineering used directly as the build blueprint. Before release, I planned and led a 20-person Tigers, Paper Tigers, and Elephants pre-mortem to surface risks the team hadn't said out loud yet.</p>
     </div>
     <div class="cs-section">
       <h2>Constraints</h2>
-      <p>This was a 0→1 build inside an already-established product, not a greenfield one. Escalation logic for sensitive financial and medical questions needed to be solid, since getting it wrong had real consequences for members.</p>
+      <p>This was a 0→1 build inside an already-established product, not a greenfield one. Escalation logic for sensitive financial and medical questions needed to be solid, since getting it wrong had real consequences for users.</p>
       <p>Support and human-provider messaging had to be reconciled without confusing the user about who they were actually talking to. And Zendesk didn't disappear: tickets still existed, so I had to design the user-facing experience to account for that underlying system.</p>
-      <p>The visual direction had its own challenges. An AI agent arguably needed to look and feel distinct from the rest of the product, but the brand wasn't ready to commit to that distinction yet, so the MVP had to read as new without reading as a departure.</p>
       <p>This was also a high-visibility project. Executive leadership was following it, operations stakeholders were involved throughout, a large engineering team was building it, it shipped across three platforms at once, and the data running through it was sensitive. That added a level of scrutiny to most decisions.</p>
     </div>
     <div class="cs-section">
@@ -530,7 +529,7 @@
     </div>
     <div class="cs-section" style="border-bottom:none;">
       <h2>Outcome</h2>
-      <p>The team shipped a limited internal release first to validate AI-handled and human-handoff logic before full rollout. In 2025, Support Chat shipped to all users in production with 91% deflection across 12,000+ questions in the first four months.</p>
+      <p>The team shipped a limited internal release first to validate AI-handled and human-handoff logic before full rollout. <span class="semibold">In 2025, Support Chat shipped to all users in production with 91% deflection across 12,000+ questions in the first four months.</span></p>
     </div>
 
     <div class="cs-projnav">

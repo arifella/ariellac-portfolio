@@ -10,7 +10,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#111111;
@@ -457,7 +457,7 @@
     <a class="cs-back" href="index.html#work">← Back to work</a>
     <span class="case-num">02</span>
     <h1>Fertility Experience</h1>
-    <p class="case-role">Maven Clinic · 2025–2026</p>
+    <p class="case-role">Maven Clinic</p>
     <div class="tags">
       <span class="tag">Oura</span>
       <span class="tag">Partnerships</span>
@@ -511,7 +511,7 @@
 
     <div class="cs-section" style="border-bottom:none; padding-bottom:0;">
       <h2>Initiative 2: Oura Cycle Data Integration</h2>
-      <p>Maven kicked off a partnership with Oura in 2025 to bring wearable data into the platform. I picked up that work and took it further as end-to-end designer, building a member-facing and provider-facing integration that pulls Oura's reproductive cycle data directly into Maven's Cycle Tracker. Oura doesn't have a dedicated fertility or symptom tracker. Maven does.</p>
+      <p>Maven kicked off a partnership with Oura in 2025 to bring wearable data into the platform. I picked up that work and took it further as end-to-end designer, building a user-facing and provider-facing integration that pulls Oura's reproductive cycle data directly into Maven's Cycle Tracker. Oura doesn't have a dedicated fertility or symptom tracker. Maven does.</p>
       <p>This gave users a way to combine Oura's biometric data with the tracking experience they were already using to try to conceive. The integration is fully built and QA'd, awaiting release.</p>
 
       <h3>The problem</h3>
@@ -523,13 +523,12 @@
     </div>
     <div class="cs-img" style="aspect-ratio:2195/1220; margin:32px 0;"><img src="oura-cycle-integration.png" data-full="oura-cycle-integration.png" alt="Four phone mockups of the Maven x Oura cycle insights update prompt, Oura calendar view with predicted period and fertile window, February 14 cycle day detail sheet, and Oura settings"></div>
     <div class="cs-section" style="padding-top:0;">
-      <p>Ovulation status, made unambiguous. The core challenge was making sure Fertile Window, Predicted Ovulation, and Confirmed Ovulation were crystal clear: what each one meant, how it showed up as icons in the calendar view, and how it was explained in plain language in the bottom sheet, all while clearly tying the data back to Oura as the source. I designed this new visual and content language to sit naturally inside Maven's existing design system, without a full redesign of Cycle Tracker or the calendar. Since this introduced concepts users hadn't seen before, I ran comprehension testing directly rather than assuming it would land, and all 20 users tested correctly interpreted what the visuals were meant to convey.</p>
-      <p>Settings. Adding the integration meant new controls users needed to manage, so I took apart the existing Cycle Tracker settings page and rebuilt it to accommodate them cleanly.</p>
-      <p>Provider view in MPractice. Users weren't the only audience. I designed the equivalent data visualization inside MPractice, Maven's proprietary EMR, where providers already view cycle data. Providers now see the same Oura-sourced cycle data their patient sees, giving care teams the same complete picture during appointments and clinical decision-making.</p>
-      <p>Getting people to connect. None of this mattered if users didn't know it existed. I designed the promotional action sheets and modals that introduced the integration to members who hadn't yet connected their Oura account, making the case for why they'd want to.</p>
+      <p>I made ovulation status unambiguous across the product: Fertile Window, Predicted Ovulation, and Confirmed Ovulation each got clear icons, plain-language explanations, and visible Oura sourcing, all fitted into Maven's existing design system rather than a full redesign. Because these were new concepts, I validated comprehension directly: all 20 users tested interpreted them correctly.</p>
+      <p>From there, I extended the work across the full experience: rebuilt settings to handle the new controls, brought the same data visualization into MPractice so providers see what their patients see, and designed the promotional moments that introduced the integration to users who hadn't connected yet.</p>
 
       <h3>Accuracy and sign-off</h3>
       <p>Cycle Tracker already pulls from multiple sources: user-logged symptoms, Apple Health, and now Oura. I partnered closely with backend engineering to define how conflicting data between sources would be resolved, and how that resolution would be visualized so users wouldn't see contradictory information with no explanation.</p>
+      <div class="cs-img" style="aspect-ratio:2200/939; margin:32px 0;"><img src="fertility-fertile-window.png" data-full="fertility-fertile-window-full.png" alt="Six calendar states showing how the fertile window and ovulation prediction resolve conflicting data: during the fertile window before estimated ovulation, day of predicted ovulation before and after confirmation, prediction unknown, and unable to estimate"></div>
       <p>Every part of the design had to meet the bar Oura needed to feel comfortable putting their name on the release, so I presented the work to their team for multiple rounds of feedback and approval.</p>
 
       <h3>Status</h3>
@@ -554,7 +553,7 @@
     </div>
 
     <div class="cs-section" style="border-bottom:none;">
-      <p>Beyond shipping these features, I built the first functional prototype of the entire Fertility homepage experience in Claude Code. It included a configurable control panel so product, engineering, and business stakeholders could see a real, 1:1 view of any user state, from a newly onboarded member on cycle day 10 to someone in fertility treatment within a specific client org, and many scenarios in between. I set it up as a project in the design team's GitHub repo and kept it updated, so other designers could pull it down and build from it instead of starting from zero. This helped tie all these projects together into a cohesive fertility homepage experience and strategy.</p>
+      <p>Beyond shipping these features, I built the first functional prototype of the entire Fertility homepage experience in Claude Code. It included a configurable control panel so product, engineering, and business stakeholders could see a real, 1:1 view of any user state, from a newly onboarded user on cycle day 10 to someone in fertility treatment within a specific client org, and many scenarios in between. I set it up as a project in the design team's GitHub repo and kept it updated, so other designers could pull it down and build from it instead of starting from zero. This helped tie all these projects together into a cohesive fertility homepage experience and strategy.</p>
     </div>
 
     <div class="cs-projnav">
