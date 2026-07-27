@@ -10,7 +10,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#111111;
@@ -472,6 +472,7 @@
     .footer-row .footer-intro{white-space:normal; max-width:38ch;}
   }
 </style>
+<link rel="stylesheet" href="case-study.css">
 </head>
 <body>
 
@@ -502,7 +503,13 @@
       <span class="tag">Web</span>
       <span class="tag">AI</span>
     </div>
-    <div class="cs-img" style="aspect-ratio:4641/3276; max-height:none;"><img src="support-chat-hero.png" data-full="support-chat-hero-full.png" alt="Three phone mockups of the Maven Support chat: the support home screen, provider recommendation topic options, and the Maven Care Team handoff with a helpful article" style="max-height:none;"></div>
+    <div class="cs-stats">
+      <div class="cs-stat"><span class="cs-stat-label">Timeframe</span><span class="cs-stat-value">2024–2025</span></div>
+      <div class="cs-stat"><span class="cs-stat-label">Platform</span><span class="cs-stat-value">iOS · Android · Web</span></div>
+      <div class="cs-stat"><span class="cs-stat-label">Scale</span><span class="cs-stat-value">300,000+ tickets/year</span></div>
+      <div class="cs-stat"><span class="cs-stat-label">Outcome</span><span class="cs-stat-value">91% deflection</span></div>
+    </div>
+    <div class="cs-img" style="aspect-ratio:2086/1441; max-height:none;"><img src="support-chat-hero.png" data-full="support-chat-hero-full.png" alt="Three phone mockups of the Maven Support chat: the support home screen, provider recommendation topic options, and the Maven Care Team handoff with a helpful article" style="max-height:none;"></div>
   </section>
 
   <section class="wrap">
@@ -517,7 +524,8 @@
       <p>Behind the scenes, a ticket was formed in Zendesk. The 24/7 Support team triaged it, tagged it, escalated it or self-assigned it, and drafted a reply using macros. Eventually the answer reached the user through the same original Care Advocate message thread, but from someone else entirely, and anywhere from within the hour up to three business days later.</p>
       <p>At the same time, users were expressing the desire to be able to get information for themself more; not everything warranted a back and forth chat with a Care Advocate, they just had a quick question.</p>
       <div class="cs-img"><span>Image placeholder</span></div>
-      <p>The volume made the math unforgiving. Support fielded at least 300,000 tickets a year, and rising. There was no self-serve path. No deflection. Every interaction depended on a human being available to pick it up. That drove up cost to serve and slowed response times across the board, even for the easy cases.</p>
+      <p>The volume made the math unforgiving. Support fielded at least 300,000 tickets a year, and rising.</p>
+      <p>There was no self-serve path. No deflection. Every interaction depended on a human being available to pick it up. That drove up cost to serve and slowed response times across the board, even for the easy cases.</p>
       <p>Maven had no existing model for how AI should handle a conversation this trust-sensitive, at this scale. But it was clear this was the highest-impact opportunity to leverage new technology.</p>
     </div>
     <div class="cs-section">

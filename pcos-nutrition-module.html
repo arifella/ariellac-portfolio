@@ -10,7 +10,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#111111;
@@ -413,6 +413,7 @@
     .footer-row .footer-intro{white-space:normal; max-width:38ch;}
   }
 </style>
+<link rel="stylesheet" href="case-study.css">
 </head>
 <body>
 
@@ -443,6 +444,12 @@
       <span class="tag">Web</span>
       <span class="tag">Homepage</span>
     </div>
+    <div class="cs-stats">
+      <div class="cs-stat"><span class="cs-stat-label">Timeframe</span><span class="cs-stat-value">Spring 2026</span></div>
+      <div class="cs-stat"><span class="cs-stat-label">Platform</span><span class="cs-stat-value">iOS · Android · Web</span></div>
+      <div class="cs-stat"><span class="cs-stat-label">Rollout</span><span class="cs-stat-value">10% of Fertility users</span></div>
+      <div class="cs-stat"><span class="cs-stat-label">Content</span><span class="cs-stat-value">7-part story card series</span></div>
+    </div>
     <div class="cs-img"><span>Image placeholder</span></div>
   </section>
 
@@ -461,10 +468,12 @@
       <p>I designed a homepage module that rotated content over a weekly cycle each time a member logged in. Rotations mixed formats deliberately: some days surfaced an assessment question through a bottom sheet, others prompted a loggable behavior (like a short walk after a meal), and others delivered supportive or educational content. The goal was to make daily engagement feel varied, while quietly capturing data on what users were doing and how they felt about managing their condition.</p>
       <div class="cs-img"><span>Image placeholder</span></div>
       <p>Alongside the module, I designed a story-card carousel, an Instagram Stories-style format, with 7 illustrated card sets going deep on individual nutrition topics (protein was one). This was meant to be a more interactive, higher-retention alternative to a static article for users who wanted to go beyond the daily module.</p>
-      <p>The hardest part was the assessment bottom sheets. They needed to plug into Maven's existing assessment infrastructure, which was tightly coupled to legacy backend architecture never built for this use case. I worked closely with engineering to unwind that constraint and find the simplest path to ship without rebuilding the system underneath it. That tradeoff shaped scope: for this version, questions were limited to checkbox/multiselect and radio/single-select formats, and result screens stayed simple. I scoped and proposed a future version of the assessment UI that supports more question types and more visually developed result pages.</p>
+      <p>The hardest part was the assessment bottom sheets. They needed to plug into Maven's existing assessment infrastructure, which was tightly coupled to legacy backend architecture never built for this use case. I worked closely with engineering to unwind that constraint and find the simplest path to ship without rebuilding the system underneath it.</p>
+      <p>That tradeoff shaped scope: for this version, questions were limited to checkbox/multiselect and radio/single-select formats, and result screens stayed simple. I scoped and proposed a future version of the assessment UI that supports more question types and more visually developed result pages.</p>
       <div class="cs-img"><span>Image placeholder</span></div>
       <p>I also designed a new interaction pattern for activity logging: a “mark as done” button with a distinct completed state, which is now a reusable pattern in Maven's design system.</p>
-      <p>Two things made this bigger than a single feature. First, the module itself was built as a template, not a one-off. The structure is designed to be repurposed for other condition pathways, starting with Endometriosis. Second, it changed what the top of the Fertility homepage does: instead of static content, users now see something dynamic, personalized to their condition, and interactive, which supports Maven's broader positioning shift toward condition-specific care.</p>
+      <p>Two things made this bigger than a single feature. First, the module itself was built as a template, not a one-off. The structure is designed to be repurposed for other condition pathways, starting with Endometriosis.</p>
+      <p>Second, it changed what the top of the Fertility homepage does: instead of static content, users now see something dynamic, personalized to their condition, and interactive, which supports Maven's broader positioning shift toward condition-specific care.</p>
     </div>
     <div class="cs-section">
       <h2>Prototyping as the primary tool</h2>

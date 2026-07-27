@@ -1,0 +1,51 @@
+/* Shared case study formatting system: heading hierarchy + stat block.
+   Loaded after each page's inline <style> block so these rules win on
+   equal specificity without needing to touch the per-page styles. */
+
+.cs-section h2{
+  font-weight:700;
+  font-size:clamp(26px, 3vw, 30px);
+  letter-spacing:-0.01em;
+}
+.cs-section h3{
+  font-family:'IBM Plex Mono', monospace;
+  font-weight:500;
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+  color:var(--ink-soft);
+  margin:36px 0 12px;
+}
+.cs-section h3:first-of-type{margin-top:0;}
+
+.cs-stats{
+  display:flex;
+  flex-wrap:wrap;
+  gap:26px 40px;
+  margin-top:28px;
+  padding-top:24px;
+  border-top:1px solid var(--line);
+}
+.cs-stat{
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+}
+.cs-stat-label{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:0.05em;
+  color:var(--gray);
+}
+.cs-stat-value{
+  font-family:'DM Sans', sans-serif;
+  font-weight:700;
+  font-size:19px;
+  letter-spacing:-0.005em;
+  color:var(--ink);
+}
+
+@media (max-width:640px){
+  .cs-stats{gap:18px 28px;}
+}

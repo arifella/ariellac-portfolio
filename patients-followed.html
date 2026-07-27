@@ -10,7 +10,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#111111;
@@ -421,6 +421,7 @@
     .footer-row .footer-intro{white-space:normal; max-width:38ch;}
   }
 </style>
+<link rel="stylesheet" href="case-study.css">
 </head>
 <body>
 
@@ -449,6 +450,12 @@
       <span class="tag">Web</span>
       <span class="tag">B2B</span>
     </div>
+    <div class="cs-stats">
+      <div class="cs-stat"><span class="cs-stat-label">Timeframe</span><span class="cs-stat-value">2022</span></div>
+      <div class="cs-stat"><span class="cs-stat-label">Platform</span><span class="cs-stat-value">Web (B2B)</span></div>
+      <div class="cs-stat"><span class="cs-stat-label">Team size</span><span class="cs-stat-value">50-person ops team</span></div>
+      <div class="cs-stat"><span class="cs-stat-label">Key metric</span><span class="cs-stat-value">X</span></div>
+    </div>
     <div class="cs-img"><span>Image placeholder</span></div>
   </section>
 
@@ -461,12 +468,21 @@
     <div class="cs-section">
       <h2>The problem</h2>
       <p>Episode Connect, Signify's B2B product, was supposed to be the system of record for all parties involved managing and tracking patients. In practice, users tracked their patients in an Excel spreadsheet and copied the data in after the fact, if they got to it at all.</p>
-      <p>Leadership had built a standard template for the team to use as part of that workflow, but it didn't hold. By the time my team got involved, almost no two people's sheets looked the same. People had forked it, added their own columns, built their own logic for flagging patients they were worried about. Some were sharing these personal versions with managers because they'd become more useful than the actual product. The spreadsheet was the real tool and source of truth. My job was to figure out what the spreadsheet was actually doing for them, and bring that back into the product we owned.</p>
+      <p>Leadership had built a standard template for the team to use as part of that workflow, but it didn't hold. By the time my team got involved, almost no two people's sheets looked the same. People had forked it, added their own columns, built their own logic for flagging patients they were worried about. Some were sharing these personal versions with managers because they'd become more useful than the actual product.</p>
+      <p>The spreadsheet was the real tool and source of truth. My job was to figure out what the spreadsheet was actually doing for them, and bring that back into the product we owned.</p>
     </div>
     <div class="cs-section">
       <h2>Research</h2>
       <p>I ran discovery sessions with a chunk of the 50-person team, then surveyed everyone to get harder data on how people were actually working, what they tracked, how they formatted it, where it broke down.</p>
-      <p>One thing came back clearly. When I asked people to rank what mattered most, almost everyone landed on the same order: current length of stay, current facility, notes from facility conversations, anticipated discharge, and a few other fields further down the list. That ranking became the spec and helped drive the feature prioritization order.</p>
+      <p>One thing came back clearly. When I asked people to rank what mattered most, almost everyone landed on the same order:</p>
+      <ul>
+        <li>current length of stay</li>
+        <li>current facility</li>
+        <li>notes from facility conversations</li>
+        <li>anticipated discharge</li>
+        <li>a few other fields further down the list</li>
+      </ul>
+      <p>That ranking became the spec and helped drive the feature prioritization order.</p>
     </div>
     <div class="cs-section">
       <h2>Design</h2>
