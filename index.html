@@ -306,6 +306,46 @@
     .work-grid{grid-template-columns:1fr;}
   }
 
+  /* ABOUT */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1.2fr 0.8fr;
+    gap:56px;
+    align-items:center;
+  }
+  .about-grid p{
+    font-size:16px;
+    line-height:1.7;
+    color:var(--ink-soft);
+    max-width:52ch;
+    margin:0 0 16px;
+  }
+  .about-photo{
+    position:relative;
+    justify-self:center;
+  }
+  .about-photo::before{
+    content:"";
+    position:absolute;
+    top:-16px; left:-16px;
+    width:100%; height:100%;
+    border:1px solid var(--line-strong);
+  }
+  .about-photo img{
+    position:relative;
+    display:block;
+    width:100%;
+    max-width:300px;
+    aspect-ratio:633/766;
+    object-fit:cover;
+    filter:contrast(1.05);
+  }
+  @media (max-width:760px){
+    .about-grid{grid-template-columns:1fr; gap:36px;}
+    .about-photo{justify-self:start; order:-1; max-width:200px;}
+    .about-photo::before{top:-10px; left:-10px;}
+  }
+
   /* APPROACH */
   .approach-grid{
     display:grid;
@@ -561,7 +601,7 @@
       <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
       <ul class="nav-links" id="navLinks">
         <li><a href="#work">Work</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="#about">About</a></li>
         <li><a href="resume.pdf" target="_blank" rel="noopener">Resume</a></li>
       </ul>
     </nav>
@@ -627,6 +667,24 @@
         </div>
       </a>
 
+    </div>
+
+  </section>
+
+  <section id="about" class="wrap">
+
+    <h2 class="section-title">About</h2>
+
+    <div class="about-grid">
+      <div>
+        <p>Welcome! I'm Ari, a Columbus-based Product Designer with 7 years of experience across B2B and B2C healthcare companies, most recently at Maven Clinic.</p>
+        <p>I'm driven by the real people on the other end of the experiences I design, whether that's someone managing a health condition or a team trying to get their work done. I care just as much about the line from design decisions to business outcomes as I do about the craft itself, and enjoy working closer to the build, using AI thoughtfully and trusting my own judgment.</p>
+        <p>When I'm not at a screen, I'm off exploring Ohio's best spots with my family and improvising in the kitchen.</p>
+        <p>I've met so many awesome people in this industry! I'd love to connect and hear what your team is building.</p>
+      </div>
+      <div class="about-photo">
+        <img src="headshot.png" alt="Ari Cohen">
+      </div>
     </div>
 
   </section>
