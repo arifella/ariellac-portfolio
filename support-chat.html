@@ -474,10 +474,6 @@
 
   <section class="wrap">
     <div class="cs-section">
-      <h2>Overview</h2>
-      <p>Maven's first 0→1 AI feature, designed end-to-end across all platforms, from early concept testing through influencing company-wide AI strategy.</p>
-    </div>
-    <div class="cs-section">
       <h2>Problem</h2>
       <p>Every support question, regardless of complexity, followed the same path: a user messaged their Care Advocate and waited. Simple questions like appointment booking or provider recommendations went through the same process as complex medical or financial ones.</p>
       <p>Behind the scenes, every message became a Zendesk ticket, triaged and answered by whoever on the 24/7 support team picked it up, often not the original Care Advocate. No self-serve, no deflection. Every interaction needed a human, <span class="semibold">at 300,000+ tickets a year and rising</span>, which drove up cost to serve and slowed responses even for simple questions users just wanted answered fast.</p>
@@ -493,17 +489,17 @@
     </div>
     <div class="cs-section">
       <h2>Constraints</h2>
-      <p>This was a 0→1 build inside an already-established product, not a greenfield one. Escalation logic for sensitive financial and medical questions needed to be solid, since getting it wrong had real consequences for users.</p>
+      <p>This was a <span class="semibold">0→1 build inside an already-established product</span>, not a greenfield one. Escalation logic for sensitive financial and medical questions needed to be solid, since getting it wrong had real consequences for users.</p>
       <p>Support and human-provider messaging had to be reconciled without confusing the user about who they were actually talking to. And Zendesk didn't disappear: tickets still existed, so I had to design the user-facing experience to account for that underlying system.</p>
-      <p>This was also a high-visibility project. Executive leadership was following it, operations stakeholders were involved throughout, a large engineering team was building it, it shipped across three platforms at once, and the data running through it was sensitive. That added a level of scrutiny to most decisions.</p>
+      <p>This was also a high-visibility project. Executive leadership was following it, operations stakeholders were involved throughout, a large engineering team was building it, it shipped across three platforms at once, and the data running through it was sensitive. <span class="semibold">That added a level of scrutiny to most decisions.</span></p>
     </div>
     <div class="cs-section" style="border-bottom:none; padding-bottom:0;">
       <h2>Beyond the Core Flow</h2>
       <p>Two additional threads of complexity ran alongside it, each with its own set of challenges.</p>
       <h3>Mental model and discoverability</h3>
-      <p>The app was full of existing entry points that routed users straight to a Care Advocate, reinforcing a habit the new self-serve path had to compete with. I had to figure out how to surface Support Chat, teach people it existed, and shift behavior, without the change reading as a downgrade in a brand built on human touch.</p>
+      <p>The app was full of existing entry points that routed users straight to a Care Advocate, reinforcing a habit the new self-serve path had to compete with. I had to figure out how to surface Support Chat, teach people it existed, and shift behavior, <span class="semibold">without the change reading as a downgrade</span> in a brand built on human touch.</p>
       <h3>Inbox mechanics</h3>
-      <p>Support had always lived in a single message thread, styled like a text conversation. Dropping an AI into that same paradigm raised two hard questions: how to make an AI-to-human handoff feel legible inside one thread, and what “resolved” even means when AI, not a person, closes the conversation. I iterated through prototypes across two core flows, AI-solvable questions and questions that need a human, to land on an MVP that held up under user testing.</p>
+      <p>Support had always lived in a single message thread, styled like a text conversation. <span class="semibold">Dropping an AI into that same paradigm raised two hard questions</span>: how to make an AI-to-human handoff feel legible inside one thread, and what “resolved” even means when AI, not a person, closes the conversation. I iterated through prototypes across two core flows, AI-solvable questions and questions that need a human, to land on an MVP that held up under user testing.</p>
     </div>
     <div class="cs-img" style="aspect-ratio:2200/1199; margin:32px 0; border:none; background:none;"><img src="support-chat-inbox.png" data-full="support-chat-inbox-full.png" alt="Five inbox states: the Messages list with Ask Maven entry point, the Ask Maven message list, filterable All/Providers/Maven messages view, the Featured Ask Maven card in the inbox, and the Maven Support conversation list"></div>
     <div class="cs-section">
@@ -515,7 +511,7 @@
     </div>
     <div class="cs-section" style="border-bottom:none; padding-bottom:0;">
       <h2>Development</h2>
-      <p>I brought engineering into the design process early and often. That wasn't just walking them through visual plans, it went both ways: understanding how chat storage, keyword detection, and the AI model itself actually worked shaped decisions I made on the design side, and their callouts on feasibility shaped what I was willing to negotiate on and what I held firm on.</p>
+      <p>I brought engineering into the design process early and often. That wasn't just walking them through visual plans, it went both ways: understanding how chat storage, keyword detection, and the AI model itself actually worked shaped decisions I made on the design side, and <span class="semibold">their callouts on feasibility shaped what I was willing to negotiate on and what I held firm on</span>.</p>
     </div>
     <div class="cs-img" style="aspect-ratio:2200/1504; margin:32px 0; border:none; background:none;"><img src="support-chat-development.png" data-full="support-chat-development-full.png" alt="MVP for Chatbot: full Figma documentation board covering the Ask Maven message inbox, start-of-chatbot states, Flow 1 (a question the bot can handle), Flow 2 (a question the bot can't handle), CSAT and closing conversations, timestamps, attachments in conversation history, the referral list form, and various loading and error states"></div>
     <div class="cs-section">
