@@ -155,6 +155,13 @@
     letter-spacing:0.04em;
     color:var(--gray);
   }
+  .cs-img img{
+    width:auto;
+    height:auto;
+    max-width:100%;
+    max-height:640px;
+    object-fit:contain;
+  }
 
   /* CASE SECTIONS */
   .cs-section{
@@ -448,41 +455,42 @@
       <div class="cs-stat"><span class="cs-stat-label">Platform</span><span class="cs-stat-value">iOS · Android · Web</span></div>
       <div class="cs-stat"><span class="cs-stat-label">Rollout</span><span class="cs-stat-value">10% of Fertility users</span></div>
     </div>
-    <div class="cs-img" style="aspect-ratio:2200/1065; max-height:none; border:none; background:none;"><img src="pcos-nutrition-hero.png" data-full="pcos-nutrition-hero-full.png" alt="Five phone mockups of the Maven PCOS nutrition module: the homepage with a Log activity card and Today's Focus, a check-in question on where the user is in their PCOS nutrition journey, a confidence question, a Your next step recommendation with a recommended read, and a Check back tomorrow state with a Meet with a Nutrition Coach prompt" style="max-height:none;"></div>
+    <div class="cs-img" style="aspect-ratio:2200/1024; max-height:none; border:none; background:none;"><img src="pcos-nutrition-hero.png" data-full="pcos-nutrition-hero-full.png" alt="Five phone mockups of the Maven PCOS nutrition module: the homepage with a Log activity card and Today's Focus, a check-in question on where the user is in their PCOS nutrition journey, a confidence question, a Your next step recommendation with a recommended read, and a Check back tomorrow state with a Meet with a Nutrition Coach prompt" style="max-height:none;"></div>
   </section>
 
   <section class="wrap">
     <div class="cs-section">
       <h2>Problem space</h2>
       <p>Maven's Fertility experience was largely generic. A user with PCOS and a user with no diagnosis or suspected condition saw the same homepage, even though PCOS has a well-established, treatment-free management lever: nutrition.</p>
-      <p>For PCOS specifically, dietary changes are one of the most effective non-treatment ways to manage the condition, but Maven wasn't doing anything to help users act on that, or to signal that Maven understood their condition was different from a general fertility case. This mattered beyond one feature. Maven's broader fertility strategy is moving toward condition-based care pathways instead of one-size-fits-all guidance. [Read more about Maven's <a href="https://www.mavenclinic.com/post/the-next-chapter-in-fertility-care-starts-before-treatment" target="_blank" rel="noopener">strategy</a> driving this project.]</p>
+      <p>For PCOS specifically, dietary changes are one of the most effective non-treatment ways to manage the condition, but Maven wasn't doing anything to help users act on that, or to signal that Maven understood their condition was different from a general fertility case. <span class="semibold">This module was the first execution of Maven's strategy shift from one-size-fits-all guidance to condition-based care pathways, starting at the homepage.</span> [Read more about Maven's <a href="https://www.mavenclinic.com/post/the-next-chapter-in-fertility-care-starts-before-treatment" target="_blank" rel="noopener">strategy</a> driving this project.]</p>
     </div>
     <div class="cs-section">
       <h2>What I built</h2>
       <h3>The module</h3>
-      <p>I designed a homepage module that rotated content over a weekly cycle each time a user logged in. Rotations mixed formats deliberately: some days surfaced an assessment question through a bottom sheet, others prompted a loggable behavior (like a short walk after a meal), others delivered supportive or educational content. The goal was to make daily engagement feel varied, while quietly capturing data on what users were doing and how they felt about managing their condition.</p>
+      <p>I designed a homepage module that rotated content over a weekly cycle each time a user logged in. Rotations mixed formats deliberately: some days surfaced an assessment question through a bottom sheet, others prompted a loggable behavior (like a short walk after a meal), others delivered supportive or educational content. The goal was to <span class="semibold">make daily engagement feel varied, while quietly capturing data</span> on what users were doing and how they felt about managing their condition.</p>
 
       <h3>Story-card carousel</h3>
-      <p>Alongside the module, I designed a story-card carousel, an Instagram Stories-style format, with 7 illustrated card sets going deep on individual nutrition topics (protein was one). This was meant to be a more interactive, higher-retention alternative to a static article for users who wanted to go beyond the daily module.</p>
+      <p>Alongside the module, I designed a story-card carousel, an Instagram Stories-style format, with 7 illustrated card sets going deep on individual nutrition topics (protein was one). <span class="semibold">This was meant to be a more interactive, higher-retention alternative to a static article</span> for users who wanted to go beyond the daily module.</p>
+      <div class="cs-img" style="aspect-ratio:2200/1385; margin:32px 0; border:none; background:none;"><img src="pcos-nutrition-story-carousel.png" data-full="pcos-nutrition-story-carousel-full.png" alt="Four phone mockups of the Maven PCOS story-card carousel: the homepage entry point and three illustrated cards on how PCOS nutrition affects symptoms, slowing digestion to keep blood sugar stable, and building a balanced breakfast"></div>
 
       <h3>The hardest part: assessments</h3>
-      <p>The assessment bottom sheets needed to plug into Maven's existing assessment infrastructure, tightly coupled to legacy backend architecture never built for this use case. I worked closely with engineering to unwind that constraint and find the simplest path to ship without rebuilding the system underneath it.</p>
+      <p>The assessment bottom sheets needed to plug into Maven's existing assessment infrastructure, tightly coupled to legacy backend architecture never built for this use case. <span class="semibold">I worked closely with engineering to unwind that constraint and find the simplest path to ship without rebuilding the system underneath it.</span></p>
       <p>That tradeoff shaped scope: questions were limited to checkbox/multiselect and radio/single-select formats, and result screens stayed simple. I scoped and proposed a future version of the assessment UI supporting more question types and more visually developed result pages.</p>
 
       <h3>A new pattern</h3>
       <p>I designed a new interaction pattern for activity logging: a “mark as done” button with a distinct completed state, now a reusable pattern in Maven's design system.</p>
 
       <h3>Why it mattered beyond this feature</h3>
-      <p>Two things made this bigger than a single feature. First, the module was built as a template, not a one-off, structured to be repurposed for other condition pathways, starting with Endometriosis.</p>
+      <p>Two things made this bigger than a single feature. First, <span class="semibold">the module was built as a template, not a one-off</span>, structured to be repurposed for other condition pathways, starting with Endometriosis.</p>
       <p>Second, it changed what the top of the Fertility homepage does. Instead of static content, users now see something dynamic, personalized to their condition, and interactive, supporting Maven's broader positioning shift toward condition-specific care.</p>
     </div>
     <div class="cs-section">
       <h2>Prototyping as the primary tool</h2>
-      <p>Static screens couldn't show how this worked. The homepage rotated through different states over a week, assessment sheets, loggable activities, story cards, completed states. I built the whole thing as a working prototype in Figma Make, and it became the source of truth everyone worked from. Engineers and I used it together to work through edge cases and highlight discrepancies between ideal state designs and currently available UI, and Product and stakeholders relied on the same prototype to drive their conversations.</p>
+      <p>Static screens couldn't show how this worked. The homepage rotated through different states over a week, assessment sheets, loggable activities, story cards, completed states. <span class="semibold">I built the whole thing as a working prototype in Figma Make, and it became the source of truth everyone worked from.</span> Engineers and I used it together to work through edge cases and highlight discrepancies between ideal state designs and currently available UI, and Product and stakeholders relied on the same prototype to drive their conversations.</p>
     </div>
     <div class="cs-section" style="border-bottom:none;">
       <h2>Outcome</h2>
-      <p>This shipped in May 2026, so there's no usage data yet. What it's designed to move: daily engagement with the Fertility homepage for PCOS users, self-reported symptom and behavior data Maven didn't previously have.</p>
+      <p>This shipped in May 2026, so there's no usage data yet. What it's designed to move: <span class="semibold">daily engagement with the Fertility homepage for PCOS users, self-reported symptom and behavior data Maven didn't previously have.</span></p>
       <p>On the design side, the concrete outcomes are already real: a new templatized content block now available to other condition pathways, a new button interaction pattern adopted into the design system, and a scoped path forward for a more flexible assessment UI.</p>
     </div>
 
